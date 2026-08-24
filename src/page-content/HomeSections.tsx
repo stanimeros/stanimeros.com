@@ -58,7 +58,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
   // Refs for card animations
   const serviceCardRefs = Array(5).fill(null).map(() => useRef<HTMLDivElement>(null))
   const packageCardRefs = Array(3).fill(null).map(() => useRef<HTMLDivElement>(null))
-  const featuredPortfolioItems = portfolioItems.slice(0, 8)
+  const featuredPortfolioItems = portfolioItems
   const portfolioCardRefs = Array(featuredPortfolioItems.length).fill(null).map(() => useRef<HTMLDivElement>(null))
   
   // Get animation props for each section

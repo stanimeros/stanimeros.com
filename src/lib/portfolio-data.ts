@@ -23,6 +23,16 @@ export interface PortfolioItem {
 
 export const portfolioItems: PortfolioItem[] = [
   {
+    key: 'statwise',
+    technologies: ["iOS", "Android", "Analytics", "GA4", "AI", "Dashboard"],
+    bgColor: "bg-emerald-900/30",
+    textColor: "text-emerald-200",
+    bgImage: "/assets/portfolio/statwise.jpg",
+    logo: "/assets/logos/statwise.png",
+    logoBg: "bg-white",
+    storeComingSoon: true,
+  },
+  {
     key: 'party',
     technologies: ["iOS", "Android", "Party Games", "Offline", "Multiplayer", "Local"],
     bgColor: "bg-fuchsia-900/30",
@@ -203,16 +213,6 @@ export const portfolioItems: PortfolioItem[] = [
       apple: "https://apps.apple.com/app/%CE%B7%CE%B4%CE%AD%CF%89%CF%82/id6503709023",
       android: "https://play.google.com/store/apps/details?id=com.stanimeros.hedeos"
     }
-  },
-  {
-    key: 'statwise',
-    technologies: ["iOS", "Android", "Analytics", "GA4", "AI", "Dashboard"],
-    bgColor: "bg-emerald-900/30",
-    textColor: "text-emerald-200",
-    bgImage: "/assets/portfolio/statwise.jpg",
-    logo: "/assets/logos/statwise.png",
-    logoBg: "bg-white",
-    storeComingSoon: true,
   },
   {
     key: 'ekarotsi',
