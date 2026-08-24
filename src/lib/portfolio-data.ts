@@ -205,6 +205,16 @@ export const portfolioItems: PortfolioItem[] = [
     }
   },
   {
+    key: 'statwise',
+    technologies: ["iOS", "Android", "Analytics", "GA4", "AI", "Dashboard"],
+    bgColor: "bg-emerald-900/30",
+    textColor: "text-emerald-200",
+    bgImage: "/assets/portfolio/statwise.jpg",
+    logo: "/assets/logos/statwise.png",
+    logoBg: "bg-white",
+    storeComingSoon: true,
+  },
+  {
     key: 'ekarotsi',
     technologies: ["Website", "E-commerce", "Supermarket", "Online Ordering", "Delivery", "Inventory"],
     bgColor: "bg-green-900/30",

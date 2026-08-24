@@ -11,8 +11,8 @@
 
 const baseUrl = (process.argv[2] || 'https://stanimeros.com').replace(/\/$/, '')
 
-const appSlugs = ['atpro-partner', 'e-karotsi', 'ski-greece', 'fire-message', 'chronal', 'nourea', 'party']
-const downloadSlugs = ['party', 'chronal', 'ski-greece', 'fire-message', 'tattoo-healer', 'atpro-partner', 'hedeos']
+const appSlugs = ['atpro-partner', 'e-karotsi', 'ski-greece', 'fire-message', 'chronal', 'nourea', 'party', 'statwise']
+const downloadSlugs = ['party', 'chronal', 'ski-greece', 'fire-message', 'tattoo-healer', 'atpro-partner', 'hedeos', 'statwise']
 
 // { path, lang, redirectTo } — pages are checked for status/lang/title,
 // redirects are checked for status 301 and the right Location header.

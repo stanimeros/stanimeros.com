@@ -402,6 +402,17 @@
           "Offline access to saved words"
         ]
       },
+      "statwise": {
+        "title": "Statwise",
+        "description": "Mobile app that connects to your GA4 property and turns your app's analytics into a clean, plain-language dashboard.",
+        "overview": "Statwise is a mobile app for iOS and Android built for solo and indie app developers who don't want to dig through the GA4 web console for a daily-glance answer to \"how's my app doing?\". After a quick Google OAuth sign-in and property picker, it shows active/new/returning users, sessions, engagement rate, day-by-day trends, and device/platform/country breakdowns, plus cohort retention, all in plain language instead of GA4 terminology. A shared date range selector keeps every screen in sync with prior-period comparisons, and reports are cached on-device so switching tabs doesn't burn through GA4's API quota.",
+        "highlights": [
+          "Google OAuth sign-in with a GA4 property picker",
+          "Plain-language dashboard: users, sessions, retention, and trends",
+          "Device, platform, and country breakdowns with cohort retention",
+          "On-device report caching with pull-to-refresh"
+        ]
+      },
       "ekarotsi": {
         "title": "e-karotsi.gr",
         "description": "E-commerce platform for a Greek supermarket with delivery and inventory management.",
@@ -886,6 +897,7 @@
     "googlePlayBeta": "Google Play (Beta)",
     "comingSoonOnThe": "Coming soon on the",
     "comingSoonOn": "Coming soon on",
+    "comingSoon": "Coming soon",
     "madeBy": "Made by"
   },
   "tree": {
@@ -897,6 +909,7 @@
     "items": {
       "party": "Offline party games for friends",
       "chronal": "Trip planning & currency rates",
+      "statwise": "Plain-language GA4 dashboard",
       "skiGreece": "Guide to Greek ski resorts",
       "fireMessage": "Push notifications, made easy",
       "tattooHealer": "Tattoo aftercare, made simple",
