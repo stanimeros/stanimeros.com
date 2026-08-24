@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -8,9 +7,8 @@ import {
   isAndroidRestrictedInAppBrowser,
   isIosRestrictedInAppBrowser,
   toAndroidPlayIntentUrl,
-  watchForBlockedNavigation,
 } from "@/lib/in-app-browser"
-import { StoreLinkDialog } from "@/components/StoreLinkDialog"
+import { STORE_LINK_TAPPED_EVENT } from "@/components/StoreLinkDialogIsland"
 
 function AppleIcon({ className }: { className?: string }) {
   return (
@@ -73,28 +71,25 @@ export function PortfolioCard({
 }: PortfolioCardProps) {
   const { t } = useTranslation()
 
-  const [blockedDialogUrl, setBlockedDialogUrl] = useState<string | null>(null)
-
   const handleAppleClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    // Let the tap try to open the App Store normally; only step in if it silently fails.
-    if (isIosRestrictedInAppBrowser(navigator.userAgent) && storeLinks?.apple) {
-      const href = storeLinks.apple
-      watchForBlockedNavigation(() => setBlockedDialogUrl(href))
+    if (isIosRestrictedInAppBrowser(navigator.userAgent)) {
+      window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
     }
   }
 
   const handleGooglePlayClick = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
+    if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
+      window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
+      return
+    }
     const isAndroid = /android/i.test(navigator.userAgent)
     if (isAndroid) {
       const href = storeLinks?.android
       if (!href) return
       window.location.href = toAndroidPlayIntentUrl(href)
-      if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
-        watchForBlockedNavigation(() => setBlockedDialogUrl(href))
-      }
       return
     }
     const href = storeLinks?.androidWeb ?? storeLinks?.android
@@ -216,54 +211,28 @@ export function PortfolioCard({
     </Card>
   )
 
-  const dialog = (
-    <StoreLinkDialog
-      open={blockedDialogUrl !== null}
-      onOpenChange={(next) => {
-        if (!next) setBlockedDialogUrl(null)
-      }}
-      url={blockedDialogUrl}
-      strings={{
-        title: t("storeLinkDialog.title"),
-        description: t("storeLinkDialog.description"),
-        copyLink: t("storeLinkDialog.copyLink"),
-        copied: t("storeLinkDialog.copied"),
-        openInBrowser: t("storeLinkDialog.openInBrowser"),
-        instructions: t("storeLinkDialog.instructions"),
-      }}
-    />
-  )
-
   if (url) {
     // Not an <a>: the card contains its own nested links (case study, store
     // buttons), and nesting an <a> inside an <a> is invalid HTML that breaks
     // React hydration. Those inner links stopPropagation so this doesn't
     // double-navigate.
     return (
-      <>
-        <div
-          role="link"
-          tabIndex={0}
-          onClick={() => window.open(url, "_blank", "noopener,noreferrer")}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault()
-              window.open(url, "_blank", "noopener,noreferrer")
-            }
-          }}
-          className="block h-full cursor-pointer"
-        >
-          {card}
-        </div>
-        {dialog}
-      </>
+      <div
+        role="link"
+        tabIndex={0}
+        onClick={() => window.open(url, "_blank", "noopener,noreferrer")}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault()
+            window.open(url, "_blank", "noopener,noreferrer")
+          }
+        }}
+        className="block h-full cursor-pointer"
+      >
+        {card}
+      </div>
     )
   }
 
-  return (
-    <>
-      {card}
-      {dialog}
-    </>
-  )
+  return card
 }

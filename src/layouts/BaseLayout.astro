@@ -6,6 +6,7 @@ import LocalizedCookieBanner from '@/components/CookieBanner.localized'
 import LocalizedChatWidget from '@/components/ChatWidget.localized'
 import LocalizedLanguageBanner from '@/components/LanguageBanner.localized'
 import ParticlesBackground from '@/components/ParticlesBackground'
+import StoreLinkDialogIsland from '@/components/StoreLinkDialogIsland.localized'
 import type { SupportedLang } from '@/i18n'
 
 interface HreflangAlternate {
@@ -100,6 +101,7 @@ const {
         <LocalizedCookieBanner lang={lang} client:idle />
         <LocalizedChatWidget lang={lang} client:idle />
         <LocalizedLanguageBanner lang={lang} client:idle />
+        <StoreLinkDialogIsland lang={lang} client:idle />
       </div>
     </div>
   </body>

@@ -2,7 +2,7 @@
 import en from '@/i18n/locales/en/main.json'
 import el from '@/i18n/locales/el/main.json'
 import type { AppDownloadPage } from '@/lib/app-download'
-import { StoreLinkDialogIsland } from '@/components/StoreLinkDialogIsland'
+import StoreLinkDialogIsland from '@/components/StoreLinkDialogIsland.localized'
 
 interface Props {
   app: AppDownloadPage
@@ -212,15 +212,10 @@ const mobileAppJsonLd = {
         isAndroidRestrictedInAppBrowser,
         isIosRestrictedInAppBrowser,
         toAndroidPlayIntentUrl,
-        watchForBlockedNavigation,
       } from '@/lib/in-app-browser'
-      import { STORE_LINK_BLOCKED_EVENT } from '@/components/StoreLinkDialogIsland'
+      import { STORE_LINK_TAPPED_EVENT } from '@/components/StoreLinkDialogIsland'
 
       trackEvent('pageView', { page: 'app-download', app: appSlug })
-
-      function showBlockedDialog(url) {
-        window.dispatchEvent(new CustomEvent(STORE_LINK_BLOCKED_EVENT, { detail: { url } }))
-      }
 
       document.querySelectorAll('[data-apple-link]').forEach((link) => {
         link.addEventListener('click', () => {
@@ -231,10 +226,9 @@ const mobileAppJsonLd = {
             app: appSlug,
           })
 
-          const href = link.dataset.appleHref
-          if (!href || !isIosRestrictedInAppBrowser(navigator.userAgent)) return
-          // Let the tap try to open the App Store normally; only step in if it silently fails.
-          watchForBlockedNavigation(() => showBlockedDialog(href))
+          if (isIosRestrictedInAppBrowser(navigator.userAgent)) {
+            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
+          }
         })
       })
 
@@ -247,6 +241,12 @@ const mobileAppJsonLd = {
             app: appSlug,
           })
 
+          if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
+            e.preventDefault()
+            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
+            return
+          }
+
           const isAndroid = /android/i.test(navigator.userAgent)
           const androidHref = link.dataset.androidHref
           const androidWebHref = link.dataset.androidWebHref
@@ -255,9 +255,6 @@ const mobileAppJsonLd = {
           if (isAndroid) {
             e.preventDefault()
             window.location.href = toAndroidPlayIntentUrl(href)
-            if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
-              watchForBlockedNavigation(() => showBlockedDialog(href))
-            }
           } else if (androidWebHref) {
             e.preventDefault()
             window.open(href, '_blank', 'noopener,noreferrer')

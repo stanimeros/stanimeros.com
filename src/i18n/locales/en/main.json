@@ -274,12 +274,8 @@
     "viewCaseStudy": "View case study →"
   },
   "storeLinkDialog": {
-    "title": "Didn't open?",
-    "description": "Try one of these to continue to the store:",
-    "copyLink": "Copy link",
-    "copied": "Copied!",
-    "openInBrowser": "Open in browser",
-    "instructions": "Or tap ⋯ or the share icon above and choose \"Open in Browser\"."
+    "title": "One more step",
+    "subtitle": "Tap the ⋯ at the top right, then choose \"Open in Browser\""
   },
   "portfolio": {
     "title": "Portfolio",

@@ -2,7 +2,7 @@
 import '@/index.css'
 import { portfolioItems } from '@/lib/portfolio-data'
 import ParticlesBackground from '@/components/ParticlesBackground'
-import { StoreLinkDialogIsland } from '@/components/StoreLinkDialogIsland'
+import StoreLinkDialogIsland from '@/components/StoreLinkDialogIsland.localized'
 import en from '@/i18n/locales/en/main.json'
 import el from '@/i18n/locales/el/main.json'
 
@@ -324,9 +324,8 @@ const description = lang === 'el'
         isAndroidRestrictedInAppBrowser,
         isIosRestrictedInAppBrowser,
         toAndroidPlayIntentUrl,
-        watchForBlockedNavigation,
       } from '@/lib/in-app-browser'
-      import { STORE_LINK_BLOCKED_EVENT } from '@/components/StoreLinkDialogIsland'
+      import { STORE_LINK_TAPPED_EVENT } from '@/components/StoreLinkDialogIsland'
 
       trackEvent('pageView', { page: 'tree' })
 
@@ -340,29 +339,27 @@ const description = lang === 'el'
         })
       })
 
-      function showBlockedDialog(url: string) {
-        window.dispatchEvent(new CustomEvent(STORE_LINK_BLOCKED_EVENT, { detail: { url } }))
-      }
-
       document.querySelectorAll<HTMLAnchorElement>('[data-apple-link]').forEach((link) => {
         link.addEventListener('click', () => {
-          const href = link.dataset.appleHref
-          if (!href || !isIosRestrictedInAppBrowser(navigator.userAgent)) return
-          // Let the tap try to open the App Store normally; only step in if it silently fails.
-          watchForBlockedNavigation(() => showBlockedDialog(href))
+          if (isIosRestrictedInAppBrowser(navigator.userAgent)) {
+            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
+          }
         })
       })
 
       document.querySelectorAll<HTMLAnchorElement>('[data-android-link]').forEach((link) => {
         link.addEventListener('click', (e) => {
+          if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
+            e.preventDefault()
+            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
+            return
+          }
+
           const isAndroid = /android/i.test(navigator.userAgent)
           const href = link.dataset.androidHref
           if (!isAndroid || !href) return
           e.preventDefault()
           window.location.href = toAndroidPlayIntentUrl(href)
-          if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
-            watchForBlockedNavigation(() => showBlockedDialog(href))
-          }
         })
       })
     </script>

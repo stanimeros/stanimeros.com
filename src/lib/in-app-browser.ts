@@ -40,25 +40,3 @@ export function toAndroidPlayIntentUrl(playUrl: string): string {
     return playUrl
   }
 }
-
-/**
- * Whether a given UA actually blocks store links varies by app version and
- * device, so we never assume it upfront — we let the normal navigation
- * attempt happen and only step in if it silently fails. A successful app
- * hand-off backgrounds/hides the page (App Store or Play Store takes over),
- * so if the page is still in the foreground after `timeoutMs`, the tap
- * didn't go anywhere and `onBlocked` fires as a fallback.
- */
-export function watchForBlockedNavigation(onBlocked: () => void, timeoutMs = 1500): void {
-  let left = false
-  const markLeft = () => {
-    left = true
-  }
-  document.addEventListener('visibilitychange', markLeft, { once: true })
-  window.addEventListener('pagehide', markLeft, { once: true })
-  window.setTimeout(() => {
-    document.removeEventListener('visibilitychange', markLeft)
-    window.removeEventListener('pagehide', markLeft)
-    if (!left) onBlocked()
-  }, timeoutMs)
-}
