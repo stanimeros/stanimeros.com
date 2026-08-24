@@ -2,6 +2,7 @@
 import en from '@/i18n/locales/en/main.json'
 import el from '@/i18n/locales/el/main.json'
 import type { AppDownloadPage } from '@/lib/app-download'
+import { StoreLinkDialogIsland } from '@/components/StoreLinkDialogIsland'
 
 interface Props {
   app: AppDownloadPage
@@ -148,32 +149,25 @@ const mobileAppJsonLd = {
             ) : (
               <>
                 {app.storeLinks?.apple && (
-                  <div class="relative w-full">
-                    <a
-                      href={app.storeLinks.apple}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-track-store="apple"
-                      data-apple-link
-                      class="flex items-center gap-4 w-full rounded-2xl border border-border/60 bg-[#1a1a1a] px-5 py-4 text-white hover:bg-[#2a2a2a] transition-colors shadow-md"
-                    >
-                      <Fragment set:html={appleIcon} />
-                      <div class="text-left min-w-0">
-                        <div class="text-xs text-white/70 leading-none">
-                          {isAppleBeta ? t('appDownload.joinBetaOn') : t('appDownload.downloadOnThe')}
-                        </div>
-                        <div class="text-lg font-semibold leading-tight mt-1">
-                          {isAppleBeta ? t('appDownload.testflight') : t('appDownload.appStore')}
-                        </div>
+                  <a
+                    href={app.storeLinks.apple}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track-store="apple"
+                    data-apple-link
+                    data-apple-href={app.storeLinks.apple}
+                    class="flex items-center gap-4 w-full rounded-2xl border border-border/60 bg-[#1a1a1a] px-5 py-4 text-white hover:bg-[#2a2a2a] transition-colors shadow-md"
+                  >
+                    <Fragment set:html={appleIcon} />
+                    <div class="text-left min-w-0">
+                      <div class="text-xs text-white/70 leading-none">
+                        {isAppleBeta ? t('appDownload.joinBetaOn') : t('appDownload.downloadOnThe')}
                       </div>
-                    </a>
-                    <div
-                      data-apple-hint
-                      class="hidden absolute z-20 top-full left-0 right-0 mt-2 rounded-xl border border-border/60 bg-card p-3 text-sm leading-snug shadow-md text-foreground text-left"
-                    >
-                      Instagram blocks this link. Tap ⋯ (top right) and choose "Open in Browser" to open the App Store.
+                      <div class="text-lg font-semibold leading-tight mt-1">
+                        {isAppleBeta ? t('appDownload.testflight') : t('appDownload.appStore')}
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 )}
 
                 {app.storeLinks?.android && (
@@ -211,18 +205,25 @@ const mobileAppJsonLd = {
       </div>
     </div>
 
+    <StoreLinkDialogIsland lang={lang} client:idle />
     <script define:vars={{ appSlug: app.slug, appTitle: title }}>
       import { trackEvent } from '@/lib/events'
+      import {
+        isAndroidRestrictedInAppBrowser,
+        isIosRestrictedInAppBrowser,
+        toAndroidPlayIntentUrl,
+        watchForBlockedNavigation,
+      } from '@/lib/in-app-browser'
+      import { STORE_LINK_BLOCKED_EVENT } from '@/components/StoreLinkDialogIsland'
 
       trackEvent('pageView', { page: 'app-download', app: appSlug })
 
-      function isIosInstagramInAppBrowser() {
-        const ua = navigator.userAgent
-        return /Instagram/i.test(ua) && /iPhone|iPad|iPod/i.test(ua)
+      function showBlockedDialog(url) {
+        window.dispatchEvent(new CustomEvent(STORE_LINK_BLOCKED_EVENT, { detail: { url } }))
       }
 
       document.querySelectorAll('[data-apple-link]').forEach((link) => {
-        link.addEventListener('click', (e) => {
+        link.addEventListener('click', () => {
           trackEvent('ctaClick', {
             source: 'app-download',
             section: 'apple',
@@ -230,12 +231,10 @@ const mobileAppJsonLd = {
             app: appSlug,
           })
 
-          if (!isIosInstagramInAppBrowser()) return
-          e.preventDefault()
-          const hint = link.parentElement?.querySelector('[data-apple-hint]')
-          if (!hint) return
-          hint.classList.remove('hidden')
-          window.setTimeout(() => hint.classList.add('hidden'), 6000)
+          const href = link.dataset.appleHref
+          if (!href || !isIosRestrictedInAppBrowser(navigator.userAgent)) return
+          // Let the tap try to open the App Store normally; only step in if it silently fails.
+          watchForBlockedNavigation(() => showBlockedDialog(href))
         })
       })
 
@@ -253,7 +252,13 @@ const mobileAppJsonLd = {
           const androidWebHref = link.dataset.androidWebHref
           const href = isAndroid ? androidHref : androidWebHref || androidHref
           if (!href) return
-          if (!isAndroid && androidWebHref) {
+          if (isAndroid) {
+            e.preventDefault()
+            window.location.href = toAndroidPlayIntentUrl(href)
+            if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
+              watchForBlockedNavigation(() => showBlockedDialog(href))
+            }
+          } else if (androidWebHref) {
             e.preventDefault()
             window.open(href, '_blank', 'noopener,noreferrer')
           }

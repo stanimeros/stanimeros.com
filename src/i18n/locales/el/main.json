@@ -162,7 +162,7 @@
         "Φιλοξενία & διαχείριση διακομιστών"
       ],
       "title": "Συντήρηση",
-      "price": "Βασικό από €50/μήνα + ΦΠΑ"
+      "price": "Από 50€/μήνα + ΦΠΑ"
     },
     "footer": "Απαντώ εντός 2 ωρών. Τα πρωτότυπα είναι έτοιμα σε 3–7 ημέρες, και ολοκληρωμένα σε λίγες εβδομάδες."
   },
@@ -271,8 +271,15 @@
     "betaGoogle": "Beta Play Store",
     "appStore": "App Store",
     "playStore": "Play Store",
-    "inAppBrowserHint": "Το Instagram μπλοκάρει αυτό το link. Πάτα ⋯ (πάνω δεξιά) και επίλεξε \"Open in Browser\" για να ανοίξεις το App Store.",
     "viewCaseStudy": "Δες τη μελέτη περίπτωσης →"
+  },
+  "storeLinkDialog": {
+    "copyLink": "Αντιγραφή link",
+    "copied": "Αντιγράφηκε!",
+    "openInBrowser": "Άνοιγμα στον browser",
+    "instructions": "Ή πάτα ⋯ ή το εικονίδιο κοινοποίησης πάνω και επίλεξε \"Open in Browser\".",
+    "description": "Δοκιμάστε ένα από αυτά για να συνεχίσετε στο κατάστημα:",
+    "title": "Δεν άνοιξε;"
   },
   "portfolio": {
     "title": "Έργα",
@@ -913,8 +920,5 @@
       "title": "Έχεις ένα παρόμοιο έργο κατά νου;"
     },
     "relatedTitle": "Περισσότερα Έργα"
-  },
-  "stickyCta": {
-    "button": "Δωρεάν Κλήση Στρατηγικής"
   }
 }

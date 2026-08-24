@@ -1,9 +1,16 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import type { StoreLinks } from "@/lib/portfolio-data"
+import {
+  isAndroidRestrictedInAppBrowser,
+  isIosRestrictedInAppBrowser,
+  toAndroidPlayIntentUrl,
+  watchForBlockedNavigation,
+} from "@/lib/in-app-browser"
+import { StoreLinkDialog } from "@/components/StoreLinkDialog"
 
 function AppleIcon({ className }: { className?: string }) {
   return (
@@ -19,12 +26,6 @@ function GooglePlayIcon({ className }: { className?: string }) {
       <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
     </svg>
   )
-}
-
-function isIosInstagramInAppBrowser() {
-  if (typeof navigator === "undefined") return false
-  const ua = navigator.userAgent
-  return /Instagram/i.test(ua) && /iPhone|iPad|iPod/i.test(ua)
 }
 
 export interface PortfolioCardProps {
@@ -72,19 +73,14 @@ export function PortfolioCard({
 }: PortfolioCardProps) {
   const { t } = useTranslation()
 
-  const [showAppleHint, setShowAppleHint] = useState(false)
-
-  useEffect(() => {
-    if (!showAppleHint) return
-    const timer = setTimeout(() => setShowAppleHint(false), 6000)
-    return () => clearTimeout(timer)
-  }, [showAppleHint])
+  const [blockedDialogUrl, setBlockedDialogUrl] = useState<string | null>(null)
 
   const handleAppleClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    if (isIosInstagramInAppBrowser()) {
-      e.preventDefault()
-      setShowAppleHint(true)
+    // Let the tap try to open the App Store normally; only step in if it silently fails.
+    if (isIosRestrictedInAppBrowser(navigator.userAgent) && storeLinks?.apple) {
+      const href = storeLinks.apple
+      watchForBlockedNavigation(() => setBlockedDialogUrl(href))
     }
   }
 
@@ -92,7 +88,16 @@ export function PortfolioCard({
     e.preventDefault()
     e.stopPropagation()
     const isAndroid = /android/i.test(navigator.userAgent)
-    const href = isAndroid ? storeLinks?.android : storeLinks?.androidWeb ?? storeLinks?.android
+    if (isAndroid) {
+      const href = storeLinks?.android
+      if (!href) return
+      window.location.href = toAndroidPlayIntentUrl(href)
+      if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
+        watchForBlockedNavigation(() => setBlockedDialogUrl(href))
+      }
+      return
+    }
+    const href = storeLinks?.androidWeb ?? storeLinks?.android
     if (href) window.open(href, "_blank", "noopener,noreferrer")
   }
 
@@ -180,27 +185,16 @@ export function PortfolioCard({
         {storeLinks && (storeLinks.apple || storeLinks.android) && (
           <div className="flex flex-wrap gap-2 mt-3">
             {storeLinks.apple && (
-              <div className="relative">
-                <a
-                  href={storeLinks.apple}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleAppleClick}
-                  className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium bg-background hover:bg-accent transition-colors"
-                >
-                  <AppleIcon className="h-3.5 w-3.5" />
-                  {appleLabel}
-                </a>
-                {showAppleHint && (
-                  <div
-                    role="tooltip"
-                    className="absolute z-20 top-full mt-1.5 left-0 w-56 rounded-md border bg-popover p-2.5 text-sm leading-snug text-popover-foreground shadow-md"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {t("portfolioCard.inAppBrowserHint")}
-                  </div>
-                )}
-              </div>
+              <a
+                href={storeLinks.apple}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleAppleClick}
+                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium bg-background hover:bg-accent transition-colors"
+              >
+                <AppleIcon className="h-3.5 w-3.5" />
+                {appleLabel}
+              </a>
             )}
             {storeLinks.android && (
               <a
@@ -222,13 +216,54 @@ export function PortfolioCard({
     </Card>
   )
 
+  const dialog = (
+    <StoreLinkDialog
+      open={blockedDialogUrl !== null}
+      onOpenChange={(next) => {
+        if (!next) setBlockedDialogUrl(null)
+      }}
+      url={blockedDialogUrl}
+      strings={{
+        title: t("storeLinkDialog.title"),
+        description: t("storeLinkDialog.description"),
+        copyLink: t("storeLinkDialog.copyLink"),
+        copied: t("storeLinkDialog.copied"),
+        openInBrowser: t("storeLinkDialog.openInBrowser"),
+        instructions: t("storeLinkDialog.instructions"),
+      }}
+    />
+  )
+
   if (url) {
+    // Not an <a>: the card contains its own nested links (case study, store
+    // buttons), and nesting an <a> inside an <a> is invalid HTML that breaks
+    // React hydration. Those inner links stopPropagation so this doesn't
+    // double-navigate.
     return (
-      <a href={url} target="_blank" rel="noopener noreferrer" className="block h-full">
-        {card}
-      </a>
+      <>
+        <div
+          role="link"
+          tabIndex={0}
+          onClick={() => window.open(url, "_blank", "noopener,noreferrer")}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault()
+              window.open(url, "_blank", "noopener,noreferrer")
+            }
+          }}
+          className="block h-full cursor-pointer"
+        >
+          {card}
+        </div>
+        {dialog}
+      </>
     )
   }
 
-  return card
+  return (
+    <>
+      {card}
+      {dialog}
+    </>
+  )
 }

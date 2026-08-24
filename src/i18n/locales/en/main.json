@@ -111,7 +111,7 @@
     "maintenance": {
       "title": "Maintenance",
       "description": "Keep everything running smoothly after launch, so you never have to think about it",
-      "price": "Basic from €50/month + VAT",
+      "price": "From €50/month + VAT",
       "features": [
         "24/7 support line",
         "Ongoing updates & refinements",
@@ -271,8 +271,15 @@
     "betaGoogle": "Play Beta",
     "appStore": "App Store",
     "playStore": "Play Store",
-    "inAppBrowserHint": "Instagram blocks this link. Tap ⋯ (top right) and choose \"Open in Browser\" to open the App Store.",
     "viewCaseStudy": "View case study →"
+  },
+  "storeLinkDialog": {
+    "title": "Didn't open?",
+    "description": "Try one of these to continue to the store:",
+    "copyLink": "Copy link",
+    "copied": "Copied!",
+    "openInBrowser": "Open in browser",
+    "instructions": "Or tap ⋯ or the share icon above and choose \"Open in Browser\"."
   },
   "portfolio": {
     "title": "Portfolio",
@@ -488,9 +495,6 @@
         ]
       }
     }
-  },
-  "stickyCta": {
-    "button": "Free Strategy Call"
   },
   "workDetail": {
     "visitProject": "Visit Project",

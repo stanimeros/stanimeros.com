@@ -2,6 +2,7 @@
 import '@/index.css'
 import { portfolioItems } from '@/lib/portfolio-data'
 import ParticlesBackground from '@/components/ParticlesBackground'
+import { StoreLinkDialogIsland } from '@/components/StoreLinkDialogIsland'
 import en from '@/i18n/locales/en/main.json'
 import el from '@/i18n/locales/el/main.json'
 
@@ -255,6 +256,8 @@ const description = lang === 'el'
                       aria-label={`${app.label} on the App Store`}
                       data-track-section="app-apple"
                       data-track-label={app.label}
+                      data-apple-link
+                      data-apple-href={app.apple}
                       class="inline-flex items-center justify-center size-7 rounded-full border border-border/60 hover:bg-accent transition-colors"
                     >
                       <Fragment set:html={appleIcon} />
@@ -268,6 +271,8 @@ const description = lang === 'el'
                       aria-label={`${app.label} on Google Play`}
                       data-track-section="app-android"
                       data-track-label={app.label}
+                      data-android-link
+                      data-android-href={app.android}
                       class="inline-flex items-center justify-center size-7 rounded-full border border-border/60 hover:bg-accent transition-colors"
                     >
                       <Fragment set:html={androidIcon} />
@@ -312,8 +317,16 @@ const description = lang === 'el'
       </div>
       </div>
     </div>
+    <StoreLinkDialogIsland lang={lang} client:idle />
     <script>
       import { trackEvent } from '@/lib/events'
+      import {
+        isAndroidRestrictedInAppBrowser,
+        isIosRestrictedInAppBrowser,
+        toAndroidPlayIntentUrl,
+        watchForBlockedNavigation,
+      } from '@/lib/in-app-browser'
+      import { STORE_LINK_BLOCKED_EVENT } from '@/components/StoreLinkDialogIsland'
 
       trackEvent('pageView', { page: 'tree' })
 
@@ -324,6 +337,32 @@ const description = lang === 'el'
             section: el.dataset.trackSection ?? null,
             label: el.dataset.trackLabel ?? null,
           })
+        })
+      })
+
+      function showBlockedDialog(url: string) {
+        window.dispatchEvent(new CustomEvent(STORE_LINK_BLOCKED_EVENT, { detail: { url } }))
+      }
+
+      document.querySelectorAll<HTMLAnchorElement>('[data-apple-link]').forEach((link) => {
+        link.addEventListener('click', () => {
+          const href = link.dataset.appleHref
+          if (!href || !isIosRestrictedInAppBrowser(navigator.userAgent)) return
+          // Let the tap try to open the App Store normally; only step in if it silently fails.
+          watchForBlockedNavigation(() => showBlockedDialog(href))
+        })
+      })
+
+      document.querySelectorAll<HTMLAnchorElement>('[data-android-link]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const isAndroid = /android/i.test(navigator.userAgent)
+          const href = link.dataset.androidHref
+          if (!isAndroid || !href) return
+          e.preventDefault()
+          window.location.href = toAndroidPlayIntentUrl(href)
+          if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
+            watchForBlockedNavigation(() => showBlockedDialog(href))
+          }
         })
       })
     </script>

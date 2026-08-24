@@ -231,9 +231,9 @@ export default function Services({ lang }: ServicesProps) {
                   ))}
                 </div>
               </div>
-              <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-3 shrink-0">
-                <div className="text-lg font-semibold text-primary whitespace-nowrap">{t('packages.maintenance.price')}</div>
-                <Button variant="outline" asChild>
+              <div className="flex flex-col md:items-end gap-3 w-full md:w-auto shrink-0">
+                <div className="text-lg font-semibold text-primary">{t('packages.maintenance.price')}</div>
+                <Button variant="outline" className="w-full md:w-auto" asChild>
                   <a href={`${prefix}/contact?source=services-maintenance`}>{t('packages.getStarted')}</a>
                 </Button>
               </div>
