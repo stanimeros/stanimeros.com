@@ -4,7 +4,7 @@ export const professionalServiceJsonLd = {
   name: "Pantelis Stanimeros - Software Engineer",
   url: "https://stanimeros.com",
   image: "https://stanimeros.com/images/logo-glass-black.png",
-  description: "Freelance software engineer based in Thessaloniki, Greece. Specializing in AI automation, mobile apps, custom dashboards, and optimization systems for businesses.",
+  description: "Registered software engineering business based in Thessaloniki, Greece. Specializing in AI automation, mobile apps, custom dashboards, and optimization systems for businesses.",
   founder: {
     "@type": "Person",
     name: "Pantelis Stanimeros",

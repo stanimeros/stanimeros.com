@@ -44,7 +44,7 @@
   },
   "aboutPage": {
     "title": "About Pantelis Stanimeros",
-    "intro": "I'm Pantelis Stanimeros, a freelance developer based in Thessaloniki, Greece.",
+    "intro": "I'm Pantelis Stanimeros, a software engineer based in Thessaloniki, Greece.",
     "background": {
       "title": "Background",
       "paragraph": "I hold a Bachelor's degree in Computer Science and an MSc in AI & Data Analytics. That shapes how I work: solid engineering foundations, with machine learning and data-driven thinking added wherever it adds real value, not just as a buzzword."
@@ -531,7 +531,7 @@
     }
   },
   "footer": {
-    "copyright": "Stanimeros",
+    "copyright": "Panteleimon Stanimeros",
     "links": {
       "privacy": "Privacy Policy",
       "dataDeletion": "Data Deletion"
@@ -901,7 +901,7 @@
     "madeBy": "Made by"
   },
   "tree": {
-    "tagline": "Freelance software engineer · Websites & apps",
+    "tagline": "Software engineering studio · Websites & apps",
     "sectionSocial": "Social",
     "sectionApps": "Apps",
     "sectionWebsites": "Websites",

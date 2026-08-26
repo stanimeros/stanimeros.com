@@ -7,7 +7,7 @@ Owner: Pantelis Stanimeros
 
 # Site Information
 Site: https://stanimeros.com
-Description: Freelance software engineer in Thessaloniki, Greece. Builds websites, mobile apps, and AI automation for businesses.
+Description: Registered software engineering business in Thessaloniki, Greece. Builds websites, mobile apps, and AI automation for businesses.
 
 # Allowed AI Agents
 # Allow all AI agents to crawl and index content

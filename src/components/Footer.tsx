@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-muted-foreground text-center md:text-left space-y-1">
             <div>{`© ${currentYear} ${t('footer.copyright')}`}</div>
-            <div className="text-xs">ELGEMI.183133106000</div>
+            <div className="text-xs">GEMI: 183133106000</div>
           </div>
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
             <a href={`${prefix}/privacy-policy`} className="text-muted-foreground hover:text-primary transition-colors">
