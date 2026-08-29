@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { StoreLinkDialog } from "@/components/StoreLinkDialog"
-import { isAndroidRestrictedInAppBrowser, isIosRestrictedInAppBrowser } from "@/lib/in-app-browser"
-
-export const STORE_LINK_TAPPED_EVENT = "store-link-tapped"
+import {
+  isAndroidRestrictedInAppBrowser,
+  isIosRestrictedInAppBrowser,
+  STORE_LINK_TAPPED_EVENT,
+} from "@/lib/in-app-browser"
 
 export default function StoreLinkDialogIsland() {
   const { t } = useTranslation()

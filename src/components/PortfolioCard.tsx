@@ -4,11 +4,10 @@ import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import type { StoreLinks } from "@/lib/portfolio-data"
 import {
-  isAndroidRestrictedInAppBrowser,
-  isIosRestrictedInAppBrowser,
-  toAndroidPlayIntentUrl,
+  resolveAndroidStoreClick,
+  shouldShowIosStoreDialog,
+  STORE_LINK_TAPPED_EVENT,
 } from "@/lib/in-app-browser"
-import { STORE_LINK_TAPPED_EVENT } from "@/components/StoreLinkDialogIsland"
 
 function AppleIcon({ className }: { className?: string }) {
   return (
@@ -73,7 +72,7 @@ export function PortfolioCard({
 
   const handleAppleClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    if (isIosRestrictedInAppBrowser(navigator.userAgent)) {
+    if (shouldShowIosStoreDialog(navigator.userAgent)) {
       window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
     }
   }
@@ -81,19 +80,17 @@ export function PortfolioCard({
   const handleGooglePlayClick = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
+    if (!storeLinks?.android) return
+    const result = resolveAndroidStoreClick(navigator.userAgent, storeLinks.android, storeLinks.androidWeb)
+    if (result.type === "show-dialog") {
       window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
-      return
+    } else if (result.type === "open-intent") {
+      window.location.href = result.url
+    } else if (result.type === "open-web") {
+      window.open(result.url, "_blank", "noopener,noreferrer")
+    } else {
+      window.open(storeLinks.android, "_blank", "noopener,noreferrer")
     }
-    const isAndroid = /android/i.test(navigator.userAgent)
-    if (isAndroid) {
-      const href = storeLinks?.android
-      if (!href) return
-      window.location.href = toAndroidPlayIntentUrl(href)
-      return
-    }
-    const href = storeLinks?.androidWeb ?? storeLinks?.android
-    if (href) window.open(href, "_blank", "noopener,noreferrer")
   }
 
   const isAppleBeta = storeLinks?.apple?.includes("testflight.apple.com") ?? false

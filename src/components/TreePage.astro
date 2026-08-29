@@ -327,12 +327,7 @@ const description = lang === 'el'
     <StoreLinkDialogIsland lang={lang} client:idle />
     <script>
       import { trackEvent } from '@/lib/events'
-      import {
-        isAndroidRestrictedInAppBrowser,
-        isIosRestrictedInAppBrowser,
-        toAndroidPlayIntentUrl,
-      } from '@/lib/in-app-browser'
-      import { STORE_LINK_TAPPED_EVENT } from '@/components/StoreLinkDialogIsland'
+      import { bindStoreLinkClicks, STORE_LINK_TAPPED_EVENT } from '@/lib/in-app-browser'
 
       trackEvent('pageView', { page: 'tree' })
 
@@ -346,29 +341,7 @@ const description = lang === 'el'
         })
       })
 
-      document.querySelectorAll<HTMLAnchorElement>('[data-apple-link]').forEach((link) => {
-        link.addEventListener('click', () => {
-          if (isIosRestrictedInAppBrowser(navigator.userAgent)) {
-            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
-          }
-        })
-      })
-
-      document.querySelectorAll<HTMLAnchorElement>('[data-android-link]').forEach((link) => {
-        link.addEventListener('click', (e) => {
-          if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
-            e.preventDefault()
-            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
-            return
-          }
-
-          const isAndroid = /android/i.test(navigator.userAgent)
-          const href = link.dataset.androidHref
-          if (!isAndroid || !href) return
-          e.preventDefault()
-          window.location.href = toAndroidPlayIntentUrl(href)
-        })
-      })
+      bindStoreLinkClicks(() => window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT)))
     </script>
   </body>
 </html>

@@ -208,59 +208,23 @@ const mobileAppJsonLd = {
     <StoreLinkDialogIsland lang={lang} client:idle />
     <script define:vars={{ appSlug: app.slug, appTitle: title }}>
       import { trackEvent } from '@/lib/events'
-      import {
-        isAndroidRestrictedInAppBrowser,
-        isIosRestrictedInAppBrowser,
-        toAndroidPlayIntentUrl,
-      } from '@/lib/in-app-browser'
-      import { STORE_LINK_TAPPED_EVENT } from '@/components/StoreLinkDialogIsland'
+      import { bindStoreLinkClicks, STORE_LINK_TAPPED_EVENT } from '@/lib/in-app-browser'
 
       trackEvent('pageView', { page: 'app-download', app: appSlug })
 
       document.querySelectorAll('[data-apple-link]').forEach((link) => {
         link.addEventListener('click', () => {
-          trackEvent('ctaClick', {
-            source: 'app-download',
-            section: 'apple',
-            label: appTitle,
-            app: appSlug,
-          })
-
-          if (isIosRestrictedInAppBrowser(navigator.userAgent)) {
-            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
-          }
+          trackEvent('ctaClick', { source: 'app-download', section: 'apple', label: appTitle, app: appSlug })
         })
       })
 
       document.querySelectorAll('[data-android-link]').forEach((link) => {
-        link.addEventListener('click', (e) => {
-          trackEvent('ctaClick', {
-            source: 'app-download',
-            section: 'android',
-            label: appTitle,
-            app: appSlug,
-          })
-
-          if (isAndroidRestrictedInAppBrowser(navigator.userAgent)) {
-            e.preventDefault()
-            window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
-            return
-          }
-
-          const isAndroid = /android/i.test(navigator.userAgent)
-          const androidHref = link.dataset.androidHref
-          const androidWebHref = link.dataset.androidWebHref
-          const href = isAndroid ? androidHref : androidWebHref || androidHref
-          if (!href) return
-          if (isAndroid) {
-            e.preventDefault()
-            window.location.href = toAndroidPlayIntentUrl(href)
-          } else if (androidWebHref) {
-            e.preventDefault()
-            window.open(href, '_blank', 'noopener,noreferrer')
-          }
+        link.addEventListener('click', () => {
+          trackEvent('ctaClick', { source: 'app-download', section: 'android', label: appTitle, app: appSlug })
         })
       })
+
+      bindStoreLinkClicks(() => window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT)))
     </script>
   </body>
 </html>
