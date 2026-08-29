@@ -274,7 +274,7 @@
     "viewCaseStudy": "View case study →"
   },
   "storeLinkDialog": {
-    "title": "Can't open the store here",
+    "title": "One more step",
     "subtitle": "Copy the link and open it in Safari or Chrome to continue",
     "copy": "Copy link",
     "copied": "Copied!"
