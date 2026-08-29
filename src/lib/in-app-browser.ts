@@ -75,12 +75,14 @@ export function resolveAndroidStoreClick(
  * Wires up click handling for `[data-apple-link]`/`[data-android-link]`
  * anchors already rendered on the page (used by the plain-DOM Astro pages;
  * React components call `shouldShowIosStoreDialog`/`resolveAndroidStoreClick`
- * directly instead).
+ * directly instead). `dispatchDialog` receives the store link that should be
+ * offered for copying.
  */
-export function bindStoreLinkClicks(dispatchDialog: () => void): void {
+export function bindStoreLinkClicks(dispatchDialog: (href: string) => void): void {
   document.querySelectorAll<HTMLAnchorElement>('[data-apple-link]').forEach((link) => {
     link.addEventListener('click', () => {
-      if (shouldShowIosStoreDialog(navigator.userAgent)) dispatchDialog()
+      const href = link.dataset.appleHref
+      if (href && shouldShowIosStoreDialog(navigator.userAgent)) dispatchDialog(href)
     })
   })
 
@@ -91,7 +93,7 @@ export function bindStoreLinkClicks(dispatchDialog: () => void): void {
       const result = resolveAndroidStoreClick(navigator.userAgent, androidHref, link.dataset.androidWebHref)
       if (result.type === 'show-dialog') {
         e.preventDefault()
-        dispatchDialog()
+        dispatchDialog(androidHref)
       } else if (result.type === 'open-intent') {
         e.preventDefault()
         window.location.href = result.url

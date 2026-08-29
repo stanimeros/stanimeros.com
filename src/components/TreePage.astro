@@ -341,7 +341,7 @@ const description = lang === 'el'
         })
       })
 
-      bindStoreLinkClicks(() => window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT)))
+      bindStoreLinkClicks((href) => window.dispatchEvent(new CustomEvent(STORE_LINK_TAPPED_EVENT, { detail: href })))
     </script>
   </body>
 </html>

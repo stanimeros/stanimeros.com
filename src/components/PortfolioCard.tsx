@@ -72,8 +72,8 @@ export function PortfolioCard({
 
   const handleAppleClick = (e: React.MouseEvent) => {
     e.stopPropagation()
-    if (shouldShowIosStoreDialog(navigator.userAgent)) {
-      window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
+    if (storeLinks?.apple && shouldShowIosStoreDialog(navigator.userAgent)) {
+      window.dispatchEvent(new CustomEvent(STORE_LINK_TAPPED_EVENT, { detail: storeLinks.apple }))
     }
   }
 
@@ -83,7 +83,7 @@ export function PortfolioCard({
     if (!storeLinks?.android) return
     const result = resolveAndroidStoreClick(navigator.userAgent, storeLinks.android, storeLinks.androidWeb)
     if (result.type === "show-dialog") {
-      window.dispatchEvent(new Event(STORE_LINK_TAPPED_EVENT))
+      window.dispatchEvent(new CustomEvent(STORE_LINK_TAPPED_EVENT, { detail: storeLinks.android }))
     } else if (result.type === "open-intent") {
       window.location.href = result.url
     } else if (result.type === "open-web") {

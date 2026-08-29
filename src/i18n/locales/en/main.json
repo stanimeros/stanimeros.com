@@ -274,8 +274,10 @@
     "viewCaseStudy": "View case study →"
   },
   "storeLinkDialog": {
-    "title": "One more step",
-    "subtitle": "Tap the ⋯ at the top right, then choose \"Open in Browser\""
+    "title": "Can't open the store here",
+    "subtitle": "Copy the link and open it in Safari or Chrome to continue",
+    "copy": "Copy link",
+    "copied": "Copied!"
   },
   "portfolio": {
     "title": "Portfolio",

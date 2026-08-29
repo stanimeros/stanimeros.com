@@ -1,34 +1,30 @@
 import { useEffect, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { StoreLinkDialog } from "@/components/StoreLinkDialog"
-import {
-  isAndroidRestrictedInAppBrowser,
-  isIosRestrictedInAppBrowser,
-  STORE_LINK_TAPPED_EVENT,
-} from "@/lib/in-app-browser"
+import { STORE_LINK_TAPPED_EVENT } from "@/lib/in-app-browser"
 
 export default function StoreLinkDialogIsland() {
   const { t } = useTranslation()
-  const [open, setOpen] = useState(false)
+  const [href, setHref] = useState<string | null>(null)
 
   useEffect(() => {
-    const ua = navigator.userAgent
-    if (isIosRestrictedInAppBrowser(ua) || isAndroidRestrictedInAppBrowser(ua)) {
-      setOpen(true)
-    }
-
-    const handler = () => setOpen(true)
+    const handler = (e: Event) => setHref((e as CustomEvent<string>).detail)
     window.addEventListener(STORE_LINK_TAPPED_EVENT, handler)
     return () => window.removeEventListener(STORE_LINK_TAPPED_EVENT, handler)
   }, [])
 
   return (
     <StoreLinkDialog
-      open={open}
-      onOpenChange={setOpen}
+      open={href !== null}
+      onOpenChange={(open) => {
+        if (!open) setHref(null)
+      }}
+      href={href}
       strings={{
         title: t("storeLinkDialog.title"),
         subtitle: t("storeLinkDialog.subtitle"),
+        copy: t("storeLinkDialog.copy"),
+        copied: t("storeLinkDialog.copied"),
       }}
     />
   )
