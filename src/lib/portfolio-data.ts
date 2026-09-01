@@ -30,7 +30,10 @@ export const portfolioItems: PortfolioItem[] = [
     bgImage: "/assets/portfolio/statwise.jpg",
     logo: "/assets/logos/statwise.png",
     logoBg: "bg-white",
-    storeComingSoon: true,
+    storeLinks: {
+      apple: "https://testflight.apple.com/join/EGWvbHwb",
+      android: "https://play.google.com/store/apps/details?id=com.stanimeros.applytics"
+    }
   },
   {
     key: 'party',
