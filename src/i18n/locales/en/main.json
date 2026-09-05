@@ -133,7 +133,7 @@
         },
         "eshopPlatforms": {
           "question": "What kind of data do I need to train an AI on my business?",
-          "answer": "It depends on what you want the AI to do. For customer support AI, your existing documents, FAQs, or product descriptions are enough. For predictions or recommendations, historical records like past orders, schedules, or outcomes work well. You don't need a huge dataset, even a few hundred records can be a good starting point. We'll assess what you have and what's possible."
+          "answer": "It depends on what you want the AI to do. For customer support AI, your existing documents, FAQs, or product descriptions are enough. For predictions or recommendations, historical records like past orders, schedules, or outcomes work well. You don't need a huge dataset — even a few hundred records can be a good starting point. We'll assess what you have and what's possible."
         },
         "customization": {
           "question": "What kind of problems can you solve with optimization?",
@@ -428,7 +428,7 @@
       },
       "transHellas": {
         "title": "Trans Hellas",
-        "description": "Logistic app for parcels Germany to Greece.",
+        "description": "Logistics app for parcels between Germany and Greece.",
         "overview": "Trans Hellas Reisen's platform manages parcel shipping between Germany and Greece, connecting stations in cities like Düsseldorf, Dortmund, Frankfurt, Köln, München and Stuttgart with weekly routes to Greece, including bus-station (KTEL) delivery. An admin panel lets staff create and track orders, manage stations and DPD courier shipments, and forward online purchases (eBay, Amazon) from Germany to recipients in Greece.",
         "highlights": [
           "Admin panel for orders and stations",
