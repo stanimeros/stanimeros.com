@@ -69,7 +69,7 @@ function assertBookableStart(start) {
 function assertBookableWindow(startTime, endTime) {
   const start = new Date(ensureOffset(startTime));
   const end = new Date(ensureOffset(endTime));
-  const durationMinutes = Math.round((end - start) / 60000);
+  const durationMinutes = Math.round((end.getTime() - start.getTime()) / 60000);
 
   if (durationMinutes !== BOOKING_DURATION_MINUTES) {
     throw new Error(

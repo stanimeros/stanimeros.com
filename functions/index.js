@@ -206,7 +206,7 @@ exports.agentReport = onSchedule(
         reportedSessions.push({
           id: session.id,
           history,
-          booked: !!session.booked,
+          booked: !!(/** @type {any} */ (session).booked),
           durationMs: last - first,
         });
       }
