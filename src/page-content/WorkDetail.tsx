@@ -63,7 +63,7 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <a
-              href={`${prefix}/services`}
+              href={`${prefix}/portfolio`}
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6"
             >
               <ArrowLeftIcon className="size-4" />
@@ -141,9 +141,7 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
         </div>
       </section>
 
-      <div className="border-t border-border/40">
-        <ProcessSection />
-      </div>
+      <ProcessSection />
 
       <Testimonials />
 
@@ -178,6 +176,14 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
                 />
               ))}
             </div>
+            <div className="text-center mt-10">
+              <a
+                href={`${prefix}/portfolio`}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {t("servicesPage.links.portfolio")}
+              </a>
+            </div>
           </div>
         </motion.section>
       )}
@@ -201,6 +207,9 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
             <div className="flex justify-center gap-6 text-sm">
               <a href={`${prefix}/about`} className="text-muted-foreground hover:text-primary transition-colors">
                 {t("servicesPage.links.about")}
+              </a>
+              <a href={`${prefix}/portfolio`} className="text-muted-foreground hover:text-primary transition-colors">
+                {t("servicesPage.links.portfolio")}
               </a>
               <a href={`${prefix}/services`} className="text-muted-foreground hover:text-primary transition-colors">
                 {t("servicesPage.title")}

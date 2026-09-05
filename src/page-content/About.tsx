@@ -180,6 +180,13 @@ export default function About({ lang }: AboutProps) {
               />
             ))}
           </div>
+          <div className="text-center mt-10">
+            <Button variant="outline" asChild>
+              <a href={`${prefix}/portfolio`}>
+                {t("servicesPage.links.portfolio")}
+              </a>
+            </Button>
+          </div>
         </div>
       </motion.section>
 

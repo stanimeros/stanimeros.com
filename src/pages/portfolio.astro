@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import LocalizedPortfolio from '@/page-content/Portfolio.localized'
+---
+
+<BaseLayout
+  lang="en"
+  title="Portfolio | Websites, Apps & Dashboards | Pantelis Stanimeros"
+  description="Browse all the websites, mobile apps, and dashboards I've built for real businesses, from e-commerce and travel to AI-powered tools."
+  canonical="https://stanimeros.com/portfolio"
+  hreflangAlternates={[
+    { hreflang: 'en', href: 'https://stanimeros.com/portfolio' },
+    { hreflang: 'el', href: 'https://stanimeros.com/el/portfolio' },
+    { hreflang: 'x-default', href: 'https://stanimeros.com/portfolio' },
+  ]}
+>
+  <LocalizedPortfolio lang="en" client:load />
+</BaseLayout>

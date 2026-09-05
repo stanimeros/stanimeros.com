@@ -279,6 +279,14 @@
     "copy": "Copy link",
     "copied": "Copied!"
   },
+  "portfolioPage": {
+    "intro": "A closer look at the websites, apps, and dashboards I've shipped for real businesses.",
+    "cta": {
+      "title": "Want something like this for your business?",
+      "description": "Let's talk about your project. The first strategy call is free, with no obligations.",
+      "button": "Get in Touch"
+    }
+  },
   "portfolio": {
     "title": "Portfolio",
     "subtitle": "Projects I've built, from mobile apps to web platforms.",

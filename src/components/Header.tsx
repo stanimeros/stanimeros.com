@@ -6,6 +6,7 @@ import {
   HomeIcon,
   UserIcon,
   Cog6ToothIcon as Settings,
+  BriefcaseIcon,
   EnvelopeIcon as Mail,
 } from "@heroicons/react/24/outline"
 import { useTranslation } from "react-i18next"
@@ -64,6 +65,12 @@ const Header = () => {
                 </a>
               </Button>
               <Button variant="ghost" asChild className="cursor-pointer">
+                <a href={`${prefix}/portfolio`}>
+                  <BriefcaseIcon className="size-4 mr-1.5" />
+                  {t('nav.portfolio')}
+                </a>
+              </Button>
+              <Button variant="ghost" asChild className="cursor-pointer">
                 <a href={`${prefix}/contact`}>
                   <Mail className="size-4 mr-1.5" />
                   {t('nav.contact')}
@@ -102,6 +109,12 @@ const Header = () => {
                   <a href={`${prefix}/services`}>
                     <Settings className="size-4 mr-3" />
                     {t('nav.services')}
+                  </a>
+                </Button>
+                <Button variant="ghost" asChild className="justify-start cursor-pointer">
+                  <a href={`${prefix}/portfolio`}>
+                    <BriefcaseIcon className="size-4 mr-3" />
+                    {t('nav.portfolio')}
                   </a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start cursor-pointer">

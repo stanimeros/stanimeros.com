@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import LocalizedPortfolio from '@/page-content/Portfolio.localized'
+---
+
+<BaseLayout
+  lang="el"
+  title="Έργα | Ιστοσελίδες, Εφαρμογές & Dashboards | Παντελής Στανήμερος"
+  description="Δες όλες τις ιστοσελίδες, εφαρμογές κινητών και dashboards που έχω φτιάξει για πραγματικές επιχειρήσεις, από e-commerce και ταξίδια έως εργαλεία με AI."
+  canonical="https://stanimeros.com/el/portfolio"
+  hreflangAlternates={[
+    { hreflang: 'en', href: 'https://stanimeros.com/portfolio' },
+    { hreflang: 'el', href: 'https://stanimeros.com/el/portfolio' },
+    { hreflang: 'x-default', href: 'https://stanimeros.com/portfolio' },
+  ]}
+>
+  <LocalizedPortfolio lang="el" client:load />
+</BaseLayout>

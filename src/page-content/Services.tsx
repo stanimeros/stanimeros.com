@@ -167,8 +167,8 @@ export default function Services({ lang }: ServicesProps) {
               <CubeTransparentIcon className="size-8 text-primary" />
               {t('packages.title')}
             </h2>
-            <Separator className="w-24 mx-auto" />
-            <p className="text-muted-foreground mt-4 max-w-3xl mx-auto">{t('packages.subtitle')}</p>
+            <Separator className="w-24 mx-auto mb-4" />
+            <p className="text-muted-foreground max-w-3xl mx-auto">{t('packages.subtitle')}</p>
             <div className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary font-medium text-sm">
               <ClockIcon className="size-4" />
               {t('packages.footer')}
@@ -297,6 +297,13 @@ export default function Services({ lang }: ServicesProps) {
                 caseStudyHref={`${prefix}/work/${keyToSlug(item.key)}`}
               />
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button variant="outline" asChild>
+              <a href={`${prefix}/portfolio`}>
+                {t("servicesPage.links.portfolio")}
+              </a>
+            </Button>
           </div>
         </div>
       </motion.section>
