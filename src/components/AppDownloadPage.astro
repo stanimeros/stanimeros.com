@@ -14,7 +14,7 @@ const locale = lang === 'el' ? el : en
 function t(key: string): string {
   return key.split('.').reduce((acc: any, part) => acc?.[part], locale) ?? key
 }
-const projectItem = locale.portfolio.items[app.key as keyof typeof en.portfolio.items]
+const projectItem = locale.projects.items[app.key as keyof typeof en.projects.items]
 const title = projectItem?.title ?? app.key
 const description = app.storeComingSoon
   ? `${t('appDownload.comingSoonOn')} App Store & Google Play. ${projectItem?.description ?? ''}`.trim()

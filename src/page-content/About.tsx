@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ProjectCard } from "@/components/ProjectCard"
 import ProcessSection from "@/components/ProcessSection"
+import Testimonials from "@/components/Testimonials"
 import {
   UserIcon,
   AcademicCapIcon,
@@ -189,6 +190,8 @@ export default function About({ lang }: AboutProps) {
           </div>
         </div>
       </motion.section>
+
+      <Testimonials />
 
       {/* CTA */}
       <motion.section

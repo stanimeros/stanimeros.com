@@ -19,7 +19,22 @@
       },
       {
         "source": "/portfolio",
-        "destination": "/",
+        "destination": "/projects",
+        "type": 301
+      },
+      {
+        "source": "/el/portfolio",
+        "destination": "/el/projects",
+        "type": 301
+      },
+      {
+        "source": "/work/:slug",
+        "destination": "/projects/:slug",
+        "type": 301
+      },
+      {
+        "source": "/el/work/:slug",
+        "destination": "/el/projects/:slug",
         "type": 301
       },
       {

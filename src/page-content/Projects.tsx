@@ -13,7 +13,7 @@ interface ProjectsProps {
   lang: "en" | "el"
 }
 
-export default function Portfolio({ lang }: ProjectsProps) {
+export default function Projects({ lang }: ProjectsProps) {
   const { t } = useTranslation()
   const prefix = lang === "el" ? "/el" : ""
 
@@ -26,7 +26,7 @@ export default function Portfolio({ lang }: ProjectsProps) {
   const ctaAnimation = useScrollAnimation(ctaRef)
 
   useEffect(() => {
-    trackEvent("pageView", { page: "portfolio" })
+    trackEvent("pageView", { page: "projects" })
   }, [])
 
   return (
@@ -86,7 +86,7 @@ export default function Portfolio({ lang }: ProjectsProps) {
             <h2 className="text-3xl font-bold mb-3">{t("projectsPage.cta.title")}</h2>
             <p className="text-foreground font-medium mb-8">{t("projectsPage.cta.description")}</p>
             <Button variant="green" size="lg" asChild className="mb-10">
-              <a href={`${prefix}/contact?source=portfolio`}>
+              <a href={`${prefix}/contact?source=projects`}>
                 <PhoneIcon className="size-5 mr-2 stroke-[1.5]" />
                 {t("projectsPage.cta.button")}
               </a>

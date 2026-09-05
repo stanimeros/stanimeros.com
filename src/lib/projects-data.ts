@@ -227,7 +227,7 @@ export const projectItems: ProjectItem[] = [
   }
 ]
 
-/** Converts a camelCase portfolio key (e.g. 'athensMytransfer') to a URL slug ('athens-mytransfer') */
+/** Converts a camelCase project key (e.g. 'athensMytransfer') to a URL slug ('athens-mytransfer') */
 export function keyToSlug(key: string): string {
   return key.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
 }

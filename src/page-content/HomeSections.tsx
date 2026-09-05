@@ -436,7 +436,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
 
       <Testimonials />
 
-      {/* Portfolio Section */}
+      {/* Projects Section */}
       <motion.section
         ref={projectsRef}
         className="py-20 bg-card/70 scroll-mt-10 overflow-hidden"

@@ -25,7 +25,7 @@ function GooglePlayIcon({ className }: { className?: string }) {
   )
 }
 
-export interface PortfolioCardProps {
+export interface ProjectCardProps {
   /** Technology badges to display */
   technologies: string[]
   /** Background color class (e.g. 'bg-red-900/30') - used as fallback or overlay */
@@ -42,7 +42,7 @@ export interface PortfolioCardProps {
   logoBg?: string
   /** Optional link URL - when set, card becomes clickable */
   url?: string
-  /** Optional internal case-study page link (e.g. /work/slug), shown as a text link */
+  /** Optional internal case-study page link (e.g. /projects/slug), shown as a text link */
   caseStudyHref?: string
   /** Optional App Store / Play Store links shown as chips */
   storeLinks?: StoreLinks
@@ -67,7 +67,7 @@ export function ProjectCard({
   title,
   description,
   className,
-}: PortfolioCardProps) {
+}: ProjectCardProps) {
   const { t } = useTranslation()
 
   const handleAppleClick = (e: React.MouseEvent) => {
@@ -95,8 +95,8 @@ export function ProjectCard({
 
   const isAppleBeta = storeLinks?.apple?.includes("testflight.apple.com") ?? false
   const isAndroidBeta = storeLinks?.android?.includes("/apps/testing/") ?? false
-  const appleLabel = t(isAppleBeta ? "portfolioCard.betaApple" : "portfolioCard.appStore")
-  const androidLabel = t(isAndroidBeta ? "portfolioCard.betaGoogle" : "portfolioCard.playStore")
+  const appleLabel = t(isAppleBeta ? "projectCard.betaApple" : "projectCard.appStore")
+  const androidLabel = t(isAndroidBeta ? "projectCard.betaGoogle" : "projectCard.playStore")
 
   const fromWords = title
     .split(/\s+/)
@@ -132,7 +132,7 @@ export function ProjectCard({
             className="absolute top-3 right-3 z-10 gap-1.5 bg-black/40 backdrop-blur-sm border-white/30 text-white"
           >
             <span className="size-1.5 rounded-full bg-green-400 animate-pulse" />
-            {t("portfolioCard.live")}
+            {t("projectCard.live")}
           </Badge>
         )}
         <div
@@ -171,7 +171,7 @@ export function ProjectCard({
             onClick={(e) => e.stopPropagation()}
             className="inline-flex items-center text-xs font-medium text-primary hover:underline mt-3"
           >
-            {t("portfolioCard.viewCaseStudy")}
+            {t("projectCard.viewCaseStudy")}
           </a>
         )}
         {storeLinks && (storeLinks.apple || storeLinks.android) && (

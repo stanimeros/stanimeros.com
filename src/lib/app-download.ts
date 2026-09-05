@@ -1,6 +1,6 @@
 import { projectItems, type ProjectItem } from './projects-data'
 
-/** camelCase portfolio key → URL slug (e.g. skiGreece → ski-greece) */
+/** camelCase project key → URL slug (e.g. skiGreece → ski-greece) */
 export function slugFromProjectKey(key: string): string {
   return key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }

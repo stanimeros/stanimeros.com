@@ -32,11 +32,11 @@ const faqItems = [
   "timeToLaunch",
   "ownership",
   "noContent",
-  "googleBusiness",
+  "technicalKnowledge",
   "seo",
-  "hosting",
-  "eshopPlatforms",
-  "customization",
+  "aiAutomation",
+  "aiTrainingData",
+  "optimizationProblems",
 ] as const
 
 export default function Contact() {

@@ -35,7 +35,7 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
   const ctaAnimation = useScrollAnimation(ctaRef)
 
   useEffect(() => {
-    trackEvent("pageView", { page: `work/${slug}` })
+    trackEvent("pageView", { page: `projects/${slug}` })
   }, [slug])
 
   if (!item) return null
@@ -114,7 +114,7 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
                 </Button>
               )}
               <Button variant="green" asChild>
-                <a href={`${prefix}/contact?source=work-${slug}`}>
+                <a href={`${prefix}/contact?source=projects-${slug}`}>
                   <PhoneIcon className="size-5 mr-2 stroke-[1.5]" />
                   {t("projectDetail.cta")}
                 </a>
@@ -198,7 +198,7 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
             <h2 className="text-3xl font-bold mb-3">{t("projectDetail.ctaSection.title")}</h2>
             <p className="text-muted-foreground mb-8">{t("projectDetail.ctaSection.description")}</p>
             <Button variant="green" size="lg" asChild className="mb-10">
-              <a href={`${prefix}/contact?source=work-${slug}-bottom`}>
+              <a href={`${prefix}/contact?source=projects-${slug}-bottom`}>
                 <PhoneIcon className="size-5 mr-2 stroke-[1.5]" />
                 {t("projectDetail.cta")}
               </a>

@@ -13,6 +13,7 @@ const baseUrl = (process.argv[2] || 'https://stanimeros.com').replace(/\/$/, '')
 
 const appSlugs = ['atpro-partner', 'e-karotsi', 'ski-greece', 'fire-message', 'chronal', 'nourea', 'party', 'statwise']
 const downloadSlugs = ['party', 'chronal', 'ski-greece', 'fire-message', 'tattoo-healer', 'atpro-partner', 'hedeos', 'statwise']
+const projectSlugs = ['statwise', 'party', 'nourea', 'chronal', 'irisdrop']
 
 // { path, lang, redirectTo } — pages are checked for status/lang/title,
 // redirects are checked for status 301 and the right Location header.
@@ -20,26 +21,33 @@ const pages = [
   { path: '/', lang: 'en' },
   { path: '/about', lang: 'en' },
   { path: '/services', lang: 'en' },
+  { path: '/projects', lang: 'en' },
   { path: '/contact', lang: 'en' },
   { path: '/privacy-policy', lang: 'en' },
   { path: '/data-deletion', lang: 'en' },
   ...appSlugs.map((slug) => ({ path: `/data-deletion/${slug}`, lang: 'en' })),
   ...appSlugs.map((slug) => ({ path: `/privacy-policy/${slug}`, lang: 'en' })),
   ...downloadSlugs.map((slug) => ({ path: `/${slug}`, lang: 'en' })),
+  ...projectSlugs.map((slug) => ({ path: `/projects/${slug}`, lang: 'en' })),
   { path: '/el', lang: 'el' },
   { path: '/el/about', lang: 'el' },
   { path: '/el/services', lang: 'el' },
+  { path: '/el/projects', lang: 'el' },
   { path: '/el/contact', lang: 'el' },
   { path: '/el/privacy-policy', lang: 'el' },
   { path: '/el/data-deletion', lang: 'el' },
   ...appSlugs.map((slug) => ({ path: `/el/data-deletion/${slug}`, lang: 'el' })),
   ...appSlugs.map((slug) => ({ path: `/el/privacy-policy/${slug}`, lang: 'el' })),
+  ...projectSlugs.map((slug) => ({ path: `/el/projects/${slug}`, lang: 'el' })),
 ]
 
 const redirects = [
   { path: '/terms', to: '/privacy-policy' },
   { path: '/privacy', to: '/privacy-policy' },
-  { path: '/portfolio', to: '/' },
+  { path: '/portfolio', to: '/projects' },
+  { path: '/el/portfolio', to: '/el/projects' },
+  { path: '/work/party', to: '/projects/party' },
+  { path: '/el/work/party', to: '/el/projects/party' },
   { path: '/en', to: '/' },
 ]
 
