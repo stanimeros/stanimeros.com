@@ -107,7 +107,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
             <div className="flex justify-center mb-4">
               <Shield className="h-12 w-12 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
               {preset ? t('privacyPolicy.titleApp', { appName: preset.appName }) : t('privacyPolicy.title')}
             </h1>
             <p className="text-muted-foreground">

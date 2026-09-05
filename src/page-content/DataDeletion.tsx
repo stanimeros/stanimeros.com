@@ -207,7 +207,7 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
             <div className="flex justify-center mb-4">
               <Trash2 className="h-12 w-12 text-primary" />
             </div>
-            <h1 className="text-4xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
               {preset ? t('dataDeletion.titleApp', { appName: preset.appName }) : t('dataDeletion.title')}
             </h1>
             <p className="text-muted-foreground">
