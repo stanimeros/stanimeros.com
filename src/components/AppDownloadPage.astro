@@ -14,11 +14,11 @@ const locale = lang === 'el' ? el : en
 function t(key: string): string {
   return key.split('.').reduce((acc: any, part) => acc?.[part], locale) ?? key
 }
-const portfolioItem = locale.portfolio.items[app.key as keyof typeof en.portfolio.items]
-const title = portfolioItem?.title ?? app.key
+const projectItem = locale.portfolio.items[app.key as keyof typeof en.portfolio.items]
+const title = projectItem?.title ?? app.key
 const description = app.storeComingSoon
-  ? `${t('appDownload.comingSoonOn')} App Store & Google Play. ${portfolioItem?.description ?? ''}`.trim()
-  : portfolioItem?.description ?? `${title}`
+  ? `${t('appDownload.comingSoonOn')} App Store & Google Play. ${projectItem?.description ?? ''}`.trim()
+  : projectItem?.description ?? `${title}`
 const pathPrefix = lang === 'el' ? '/el' : ''
 const canonical = `https://stanimeros.com${pathPrefix}/${app.slug}`
 const ogImage = app.logo

@@ -1,23 +1,23 @@
-import { portfolioItems, type PortfolioItem } from './portfolio-data'
+import { projectItems, type ProjectItem } from './projects-data'
 
 /** camelCase portfolio key → URL slug (e.g. skiGreece → ski-greece) */
-export function slugFromPortfolioKey(key: string): string {
+export function slugFromProjectKey(key: string): string {
   return key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
-export interface AppDownloadPage extends PortfolioItem {
+export interface AppDownloadPage extends ProjectItem {
   slug: string
 }
 
 export function getAppDownloadPages(): AppDownloadPage[] {
-  return portfolioItems
+  return projectItems
     .filter(
       (item) =>
         item.storeComingSoon ||
         item.storeLinks?.apple ||
         item.storeLinks?.android
     )
-    .map((item) => ({ ...item, slug: slugFromPortfolioKey(item.key) }))
+    .map((item) => ({ ...item, slug: slugFromProjectKey(item.key) }))
 }
 
 export function getAppDownloadPage(slug: string): AppDownloadPage | undefined {

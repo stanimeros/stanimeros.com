@@ -3,17 +3,17 @@ import { useTranslation } from "react-i18next"
 import { motion, type HTMLMotionProps } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { PortfolioCard } from "@/components/PortfolioCard"
+import { ProjectCard } from "@/components/ProjectCard"
 import { BriefcaseIcon, PhoneIcon } from "@heroicons/react/24/outline"
 import { trackEvent } from "@/lib/events"
 import { useScrollAnimation } from "@/lib/hooks"
-import { portfolioItems, keyToSlug } from "@/lib/portfolio-data"
+import { projectItems, keyToSlug } from "@/lib/projects-data"
 
-interface PortfolioProps {
+interface ProjectsProps {
   lang: "en" | "el"
 }
 
-export default function Portfolio({ lang }: PortfolioProps) {
+export default function Portfolio({ lang }: ProjectsProps) {
   const { t } = useTranslation()
   const prefix = lang === "el" ? "/el" : ""
 
@@ -56,8 +56,8 @@ export default function Portfolio({ lang }: PortfolioProps) {
         {...(gridAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-            {portfolioItems.map((item) => (
-              <PortfolioCard
+            {projectItems.map((item) => (
+              <ProjectCard
                 key={item.key}
                 title={t(`portfolio.items.${item.key}.title`)}
                 description={t(`portfolio.items.${item.key}.description`)}

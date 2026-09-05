@@ -1,6 +1,6 @@
 ---
 import '@/index.css'
-import { portfolioItems } from '@/lib/portfolio-data'
+import { projectItems } from '@/lib/projects-data'
 import ParticlesBackground from '@/components/ParticlesBackground'
 import StoreLinkDialogIsland from '@/components/StoreLinkDialogIsland.localized'
 import en from '@/i18n/locales/en/main.json'
@@ -59,7 +59,7 @@ function getInitials(title: string) {
     : (title.replace(/\s/g, "").slice(0, 2).toUpperCase() || "??").padEnd(2, "?")
 }
 
-const appLinks = portfolioItems
+const appLinks = projectItems
   .filter((item) => item.storeLinks?.apple || item.storeLinks?.android || item.storeComingSoon)
   .map((item) => {
     const label = appNames[item.key] ?? item.key
@@ -90,7 +90,7 @@ const websiteNames: Record<string, string> = {
   ekarotsi: 'e-Karotsi',
 }
 
-const websiteLinks = portfolioItems
+const websiteLinks = projectItems
   .filter((item) => item.url)
   .map((item) => {
     const label = websiteNames[item.key] ?? item.key

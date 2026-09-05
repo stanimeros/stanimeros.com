@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { PortfolioCard } from "@/components/PortfolioCard"
+import { ProjectCard } from "@/components/ProjectCard"
 import ProcessSection from "@/components/ProcessSection"
 import {
   UserIcon,
@@ -18,7 +18,7 @@ import {
 import { trackEvent } from "@/lib/events"
 import { useScrollAnimation } from "@/lib/hooks"
 import GitHubCalendarComponent from "@/components/GitHubCalendar"
-import { portfolioItems, keyToSlug } from "@/lib/portfolio-data"
+import { projectItems, keyToSlug } from "@/lib/projects-data"
 
 const sections = [
   { key: "background", icon: AcademicCapIcon },
@@ -32,7 +32,7 @@ const skillBadges = [
 ]
 
 const exampleKeys = ['fireMessage', 'hedeos', 'transHellas', 'atproPartner']
-const examples = portfolioItems.filter((item) => exampleKeys.includes(item.key))
+const examples = projectItems.filter((item) => exampleKeys.includes(item.key))
 
 interface AboutProps {
   lang: "en" | "el"
@@ -165,7 +165,7 @@ export default function About({ lang }: AboutProps) {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
             {examples.map((item) => (
-              <PortfolioCard
+              <ProjectCard
                 key={item.key}
                 title={t(`portfolio.items.${item.key}.title`)}
                 description={t(`portfolio.items.${item.key}.description`)}

@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import LocalizedWorkDetail from '@/page-content/WorkDetail.localized'
-import { portfolioItems, keyToSlug } from '@/lib/portfolio-data'
+import LocalizedProjectDetail from '@/page-content/ProjectDetail.localized'
+import { projectItems, keyToSlug } from '@/lib/projects-data'
 import enMain from '@/i18n/locales/en/main.json'
 
 export function getStaticPaths() {
-  return portfolioItems.map((item) => ({
+  return projectItems.map((item) => ({
     params: { slug: keyToSlug(item.key) },
     props: { item },
   }))
@@ -27,5 +27,5 @@ const copy = (enMain.portfolio.items as Record<string, { title: string; descript
     { hreflang: 'x-default', href: `https://stanimeros.com/work/${slug}` },
   ]}
 >
-  <LocalizedWorkDetail lang="en" slug={slug} client:load />
+  <LocalizedProjectDetail lang="en" slug={slug} client:load />
 </BaseLayout>

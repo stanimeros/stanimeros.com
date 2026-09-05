@@ -1,4 +1,4 @@
 import { withI18n } from '@/lib/withI18n'
-import WorkDetail from './WorkDetail'
+import ProjectDetail from './ProjectDetail'
 
-export default withI18n(WorkDetail)
+export default withI18n(ProjectDetail)

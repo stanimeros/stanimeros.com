@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import ProcessSection from "@/components/ProcessSection"
 import Testimonials from "@/components/Testimonials"
-import { PortfolioCard } from "@/components/PortfolioCard"
+import { ProjectCard } from "@/components/ProjectCard"
 import {
   ArrowLeftIcon,
   ArrowTopRightOnSquareIcon,
@@ -17,17 +17,17 @@ import {
 import { cn } from "@/lib/utils"
 import { trackEvent } from "@/lib/events"
 import { useScrollAnimation } from "@/lib/hooks"
-import { getPortfolioItemBySlug, portfolioItems, keyToSlug } from "@/lib/portfolio-data"
+import { getProjectBySlug, projectItems, keyToSlug } from "@/lib/projects-data"
 
-interface WorkDetailProps {
+interface ProjectDetailProps {
   lang: "en" | "el"
   slug: string
 }
 
-export default function WorkDetail({ lang, slug }: WorkDetailProps) {
+export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
   const { t } = useTranslation()
   const prefix = lang === "el" ? "/el" : ""
-  const item = getPortfolioItemBySlug(slug)
+  const item = getProjectBySlug(slug)
 
   const relatedRef = useRef<HTMLElement>(null)
   const ctaRef = useRef<HTMLElement>(null)
@@ -51,10 +51,10 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
       ? fromWords.slice(0, 2)
       : (title.replace(/\s/g, "").slice(0, 2).toUpperCase() || "??").padEnd(2, "?")
 
-  const currentIndex = portfolioItems.findIndex((p) => p.key === item.key)
+  const currentIndex = projectItems.findIndex((p) => p.key === item.key)
   const related = Array.from({ length: 3 }, (_, i) => {
-    const index = (currentIndex + 1 + i) % portfolioItems.length
-    return portfolioItems[index]
+    const index = (currentIndex + 1 + i) % projectItems.length
+    return projectItems[index]
   }).filter((p) => p.key !== item.key)
 
   return (
@@ -160,7 +160,7 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {related.map((relatedItem) => (
-                <PortfolioCard
+                <ProjectCard
                   key={relatedItem.key}
                   title={t(`portfolio.items.${relatedItem.key}.title`)}
                   description={t(`portfolio.items.${relatedItem.key}.description`)}

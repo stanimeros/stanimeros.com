@@ -7,7 +7,7 @@ export interface StoreLinks {
   androidWeb?: string
 }
 
-export interface PortfolioItem {
+export interface ProjectItem {
   key: string
   technologies: string[]
   bgColor: string
@@ -21,7 +21,7 @@ export interface PortfolioItem {
   storeComingSoon?: boolean
 }
 
-export const portfolioItems: PortfolioItem[] = [
+export const projectItems: ProjectItem[] = [
   {
     key: 'statwise',
     technologies: ["iOS", "Android", "Analytics", "GA4", "AI", "Dashboard"],
@@ -232,6 +232,6 @@ export function keyToSlug(key: string): string {
   return key.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
-export function getPortfolioItemBySlug(slug: string): PortfolioItem | undefined {
-  return portfolioItems.find((item) => keyToSlug(item.key) === slug)
+export function getProjectBySlug(slug: string): ProjectItem | undefined {
+  return projectItems.find((item) => keyToSlug(item.key) === slug)
 }

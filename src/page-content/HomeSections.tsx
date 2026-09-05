@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { motion, type HTMLMotionProps } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { PortfolioCard } from "@/components/PortfolioCard"
+import { ProjectCard } from "@/components/ProjectCard"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -33,7 +33,7 @@ import Testimonials from "@/components/Testimonials"
 import { ContactChannels } from "@/components/ContactChannels"
 import { trackEvent } from "@/lib/events"
 import { useScrollAnimation, useMobileCardAnimation } from "@/lib/hooks"
-import { portfolioItems, keyToSlug } from "@/lib/portfolio-data"
+import { projectItems, keyToSlug } from "@/lib/projects-data"
 import { FacebookIcon, InstagramIcon, LinkedinIcon, GithubIcon, BriefcaseIcon } from "lucide-react"
 
 interface HomeSectionsProps {
@@ -58,7 +58,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
   // Refs for card animations
   const serviceCardRefs = Array(5).fill(null).map(() => useRef<HTMLDivElement>(null))
   const packageCardRefs = Array(3).fill(null).map(() => useRef<HTMLDivElement>(null))
-  const featuredPortfolioItems = portfolioItems
+  const featuredPortfolioItems = projectItems
   const portfolioCardRefs = Array(featuredPortfolioItems.length).fill(null).map(() => useRef<HTMLDivElement>(null))
   
   // Get animation props for each section
@@ -458,7 +458,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
                 {...useMobileCardAnimation(portfolioCardRefs[index], index)}
                 className="md:transform-none w-full"
               >
-                <PortfolioCard
+                <ProjectCard
                   title={t(`portfolio.items.${item.key}.title`)}
                   description={t(`portfolio.items.${item.key}.description`)}
                   technologies={item.technologies}

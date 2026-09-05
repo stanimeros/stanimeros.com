@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
-import type { StoreLinks } from "@/lib/portfolio-data"
+import type { StoreLinks } from "@/lib/projects-data"
 import {
   resolveAndroidStoreClick,
   shouldShowIosStoreDialog,
@@ -53,7 +53,7 @@ export interface PortfolioCardProps {
   className?: string
 }
 
-export function PortfolioCard({
+export function ProjectCard({
   technologies,
   bgColor,
   bgImage,

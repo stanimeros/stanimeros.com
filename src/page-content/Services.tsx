@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { PortfolioCard } from "@/components/PortfolioCard"
+import { ProjectCard } from "@/components/ProjectCard"
 import ProcessSection from "@/components/ProcessSection"
 import Testimonials from "@/components/Testimonials"
 import {
@@ -26,7 +26,7 @@ import {
 } from "@heroicons/react/24/outline"
 import { trackEvent } from "@/lib/events"
 import { useScrollAnimation } from "@/lib/hooks"
-import { portfolioItems, keyToSlug } from "@/lib/portfolio-data"
+import { projectItems, keyToSlug } from "@/lib/projects-data"
 
 const items = [
   { key: "website", icon: GlobeAltIcon },
@@ -282,8 +282,8 @@ export default function Services({ lang }: ServicesProps) {
             <Separator className="w-24 mx-auto" />
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-            {portfolioItems.map((item) => (
-              <PortfolioCard
+            {projectItems.map((item) => (
+              <ProjectCard
                 key={item.key}
                 title={t(`portfolio.items.${item.key}.title`)}
                 description={t(`portfolio.items.${item.key}.description`)}
