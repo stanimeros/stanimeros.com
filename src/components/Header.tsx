@@ -65,9 +65,9 @@ const Header = () => {
                 </a>
               </Button>
               <Button variant="ghost" asChild className="cursor-pointer">
-                <a href={`${prefix}/portfolio`}>
+                <a href={`${prefix}/projects`}>
                   <BriefcaseIcon className="size-4 mr-1.5" />
-                  {t('nav.portfolio')}
+                  {t("nav.projects")}
                 </a>
               </Button>
               <Button variant="ghost" asChild className="cursor-pointer">
@@ -112,9 +112,9 @@ const Header = () => {
                   </a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start cursor-pointer">
-                  <a href={`${prefix}/portfolio`}>
+                  <a href={`${prefix}/projects`}>
                     <BriefcaseIcon className="size-4 mr-3" />
-                    {t('nav.portfolio')}
+                    {t("nav.projects")}
                   </a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start cursor-pointer">

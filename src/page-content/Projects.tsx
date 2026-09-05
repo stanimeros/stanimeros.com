@@ -40,11 +40,11 @@ export default function Portfolio({ lang }: ProjectsProps) {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3">
               <BriefcaseIcon className="size-8 text-primary" />
-              {t("portfolio.title")}
+              {t("projects.title")}
             </h1>
             <Separator className="w-24 mx-auto mb-4" />
-            <p className="text-xl text-muted-foreground mb-4">{t("portfolio.subtitle")}</p>
-            <p className="text-muted-foreground">{t("portfolioPage.intro")}</p>
+            <p className="text-xl text-muted-foreground mb-4">{t("projects.subtitle")}</p>
+            <p className="text-muted-foreground">{t("projectsPage.intro")}</p>
           </div>
         </div>
       </motion.section>
@@ -59,8 +59,8 @@ export default function Portfolio({ lang }: ProjectsProps) {
             {projectItems.map((item) => (
               <ProjectCard
                 key={item.key}
-                title={t(`portfolio.items.${item.key}.title`)}
-                description={t(`portfolio.items.${item.key}.description`)}
+                title={t(`projects.items.${item.key}.title`)}
+                description={t(`projects.items.${item.key}.description`)}
                 technologies={item.technologies}
                 bgColor={item.bgColor}
                 textColor={item.textColor}
@@ -68,7 +68,7 @@ export default function Portfolio({ lang }: ProjectsProps) {
                 logo={item.logo}
                 logoBg={item.logoBg}
                 url={item.url}
-                caseStudyHref={`${prefix}/work/${keyToSlug(item.key)}`}
+                caseStudyHref={`${prefix}/projects/${keyToSlug(item.key)}`}
                 storeLinks={item.storeLinks}
               />
             ))}
@@ -83,12 +83,12 @@ export default function Portfolio({ lang }: ProjectsProps) {
         {...(ctaAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-3">{t("portfolioPage.cta.title")}</h2>
-            <p className="text-foreground font-medium mb-8">{t("portfolioPage.cta.description")}</p>
+            <h2 className="text-3xl font-bold mb-3">{t("projectsPage.cta.title")}</h2>
+            <p className="text-foreground font-medium mb-8">{t("projectsPage.cta.description")}</p>
             <Button variant="green" size="lg" asChild className="mb-10">
               <a href={`${prefix}/contact?source=portfolio`}>
                 <PhoneIcon className="size-5 mr-2 stroke-[1.5]" />
-                {t("portfolioPage.cta.button")}
+                {t("projectsPage.cta.button")}
               </a>
             </Button>
 

@@ -93,14 +93,14 @@ export default function Services({ lang }: ServicesProps) {
   const itemsRef = useRef<HTMLElement>(null)
   const packagesRef = useRef<HTMLElement>(null)
   const faqRef = useRef<HTMLElement>(null)
-  const portfolioRef = useRef<HTMLElement>(null)
+  const projectsRef = useRef<HTMLElement>(null)
   const ctaRef = useRef<HTMLElement>(null)
 
   const heroAnimation = useScrollAnimation(heroRef)
   const itemsAnimation = useScrollAnimation(itemsRef)
   const packagesAnimation = useScrollAnimation(packagesRef)
   const faqAnimation = useScrollAnimation(faqRef)
-  const portfolioAnimation = useScrollAnimation(portfolioRef)
+  const projectsAnimation = useScrollAnimation(projectsRef)
   const ctaAnimation = useScrollAnimation(ctaRef)
 
   useEffect(() => {
@@ -269,15 +269,15 @@ export default function Services({ lang }: ServicesProps) {
 
       {/* All projects */}
       <motion.section
-        id="portfolio"
-        ref={portfolioRef}
+        id="projects"
+        ref={projectsRef}
         className="py-20 bg-card/70 scroll-mt-10 overflow-hidden"
-        {...(portfolioAnimation as HTMLMotionProps<"section">)}>
+        {...(projectsAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
               <BriefcaseIcon className="size-8 text-primary" />
-              {t('portfolio.title')}
+              {t("projects.title")}
             </h2>
             <Separator className="w-24 mx-auto" />
           </div>
@@ -285,8 +285,8 @@ export default function Services({ lang }: ServicesProps) {
             {projectItems.map((item) => (
               <ProjectCard
                 key={item.key}
-                title={t(`portfolio.items.${item.key}.title`)}
-                description={t(`portfolio.items.${item.key}.description`)}
+                title={t(`projects.items.${item.key}.title`)}
+                description={t(`projects.items.${item.key}.description`)}
                 technologies={item.technologies}
                 bgColor={item.bgColor}
                 textColor={item.textColor}
@@ -294,14 +294,14 @@ export default function Services({ lang }: ServicesProps) {
                 logo={item.logo}
                 logoBg={item.logoBg}
                 url={item.url}
-                caseStudyHref={`${prefix}/work/${keyToSlug(item.key)}`}
+                caseStudyHref={`${prefix}/projects/${keyToSlug(item.key)}`}
               />
             ))}
           </div>
           <div className="text-center mt-10">
             <Button variant="outline" asChild>
-              <a href={`${prefix}/portfolio`}>
-                {t("servicesPage.links.portfolio")}
+              <a href={`${prefix}/projects`}>
+                {t("servicesPage.links.projects")}
               </a>
             </Button>
           </div>

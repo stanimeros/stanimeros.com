@@ -42,7 +42,7 @@ interface HomeSectionsProps {
 
 const HomeSections = ({ lang }: HomeSectionsProps) => {
   const { t } = useTranslation()
-  const workPrefix = lang === "el" ? "/el" : ""
+  const prefix = lang === "el" ? "/el" : ""
   // react-github-calendar breaks Node SSR during Astro's static build, so it's
   // only ever rendered client-side, and only once the About section scrolls
   // into view (it pulls in a separate JS chunk + external API fetch).
@@ -52,14 +52,14 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
   const aboutRef = useRef<HTMLElement>(null)
   const servicesRef = useRef<HTMLElement>(null)
   const packagesRef = useRef<HTMLElement>(null)
-  const portfolioRef = useRef<HTMLElement>(null)
+  const projectsRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
   
   // Refs for card animations
   const serviceCardRefs = Array(5).fill(null).map(() => useRef<HTMLDivElement>(null))
   const packageCardRefs = Array(3).fill(null).map(() => useRef<HTMLDivElement>(null))
-  const featuredPortfolioItems = projectItems
-  const portfolioCardRefs = Array(featuredPortfolioItems.length).fill(null).map(() => useRef<HTMLDivElement>(null))
+  const featuredProjectItems = projectItems
+  const projectCardRefs = Array(featuredProjectItems.length).fill(null).map(() => useRef<HTMLDivElement>(null))
   
   // Get animation props for each section
   const aboutAnimation = useScrollAnimation(aboutRef)
@@ -80,7 +80,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
   }, [])
   const servicesAnimation = useScrollAnimation(servicesRef)
   const packagesAnimation = useScrollAnimation(packagesRef)
-  const portfolioAnimation = useScrollAnimation(portfolioRef)
+  const projectsAnimation = useScrollAnimation(projectsRef)
   const contactAnimation = useScrollAnimation(contactRef)
   
   const goToContact = (source: string, pkg?: string) => {
@@ -438,29 +438,29 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
 
       {/* Portfolio Section */}
       <motion.section
-        ref={portfolioRef}
+        ref={projectsRef}
         className="py-20 bg-card/70 scroll-mt-10 overflow-hidden"
-        {...(portfolioAnimation as HTMLMotionProps<"section">)}>
+        {...(projectsAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
               <BriefcaseIcon className="size-8 text-primary" />
-              {t('portfolio.title')}
+              {t("projects.title")}
             </h2>
             <Separator className="w-24 mx-auto mb-4" />
-            <p className="text-muted-foreground max-w-2xl mx-auto">{t('portfolio.subtitle')}</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto">{t("projects.subtitle")}</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-            {featuredPortfolioItems.map((item, index) => (
+            {featuredProjectItems.map((item, index) => (
               <motion.div
                 key={item.key}
-                ref={portfolioCardRefs[index]}
-                {...useMobileCardAnimation(portfolioCardRefs[index], index)}
+                ref={projectCardRefs[index]}
+                {...useMobileCardAnimation(projectCardRefs[index], index)}
                 className="md:transform-none w-full"
               >
                 <ProjectCard
-                  title={t(`portfolio.items.${item.key}.title`)}
-                  description={t(`portfolio.items.${item.key}.description`)}
+                  title={t(`projects.items.${item.key}.title`)}
+                  description={t(`projects.items.${item.key}.description`)}
                   technologies={item.technologies}
                   bgColor={item.bgColor}
                   textColor={item.textColor}
@@ -468,7 +468,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
                   logo={item.logo}
                   logoBg={item.logoBg}
                   url={item.url}
-                  caseStudyHref={`${workPrefix}/work/${keyToSlug(item.key)}`}
+                  caseStudyHref={`${prefix}/projects/${keyToSlug(item.key)}`}
                   storeLinks={item.storeLinks}
                 />
               </motion.div>
@@ -476,8 +476,8 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
           </div>
           <div className="text-center mt-10">
             <Button variant="outline" asChild>
-              <a href={`${workPrefix}/portfolio`}>
-                {t("servicesPage.links.portfolio")}
+              <a href={`${prefix}/projects`}>
+                {t("servicesPage.links.projects")}
               </a>
             </Button>
           </div>

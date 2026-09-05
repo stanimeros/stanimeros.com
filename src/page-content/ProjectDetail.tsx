@@ -40,7 +40,7 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
 
   if (!item) return null
 
-  const title = t(`portfolio.items.${item.key}.title`)
+  const title = t(`projects.items.${item.key}.title`)
   const fromWords = title
     .split(/\s+/)
     .map((word) => word[0])
@@ -63,11 +63,11 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <a
-              href={`${prefix}/portfolio`}
+              href={`${prefix}/projects`}
               className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6"
             >
               <ArrowLeftIcon className="size-4" />
-              {t("servicesPage.links.portfolio")}
+              {t("servicesPage.links.projects")}
             </a>
 
             <div className="flex items-center gap-4 mb-4">
@@ -93,7 +93,7 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
             </div>
             <Separator className="w-24 mb-4" />
             <p className="text-xl text-muted-foreground mb-6">
-              {t(`portfolio.items.${item.key}.description`)}
+              {t(`projects.items.${item.key}.description`)}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-8">
@@ -109,14 +109,14 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
                 <Button variant="outline" asChild>
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
                     <ArrowTopRightOnSquareIcon className="size-5 mr-2 stroke-[1.5]" />
-                    {t("workDetail.visitProject")}
+                    {t("projectDetail.visitProject")}
                   </a>
                 </Button>
               )}
               <Button variant="green" asChild>
                 <a href={`${prefix}/contact?source=work-${slug}`}>
                   <PhoneIcon className="size-5 mr-2 stroke-[1.5]" />
-                  {t("workDetail.cta")}
+                  {t("projectDetail.cta")}
                 </a>
               </Button>
             </div>
@@ -124,11 +124,11 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
             <Separator className="mb-10" />
 
             <p className="text-muted-foreground leading-relaxed mb-8">
-              {t(`portfolio.items.${item.key}.overview`)}
+              {t(`projects.items.${item.key}.overview`)}
             </p>
 
             <div className="grid sm:grid-cols-2 gap-3">
-              {(t(`portfolio.items.${item.key}.highlights`, { returnObjects: true }) as string[]).map(
+              {(t(`projects.items.${item.key}.highlights`, { returnObjects: true }) as string[]).map(
                 (highlight, index) => (
                   <div key={index} className="flex items-start gap-2">
                     <CheckIcon className="size-4 text-primary mt-1 shrink-0" />
@@ -154,7 +154,7 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
                 <Squares2X2Icon className="size-8 text-primary" />
-                {t("workDetail.relatedTitle")}
+                {t("projectDetail.relatedTitle")}
               </h2>
               <Separator className="w-24 mx-auto" />
             </div>
@@ -162,8 +162,8 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
               {related.map((relatedItem) => (
                 <ProjectCard
                   key={relatedItem.key}
-                  title={t(`portfolio.items.${relatedItem.key}.title`)}
-                  description={t(`portfolio.items.${relatedItem.key}.description`)}
+                  title={t(`projects.items.${relatedItem.key}.title`)}
+                  description={t(`projects.items.${relatedItem.key}.description`)}
                   technologies={relatedItem.technologies}
                   bgColor={relatedItem.bgColor}
                   textColor={relatedItem.textColor}
@@ -171,17 +171,17 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
                   logo={relatedItem.logo}
                   logoBg={relatedItem.logoBg}
                   url={relatedItem.url}
-                  caseStudyHref={`${prefix}/work/${keyToSlug(relatedItem.key)}`}
+                  caseStudyHref={`${prefix}/projects/${keyToSlug(relatedItem.key)}`}
                   storeLinks={relatedItem.storeLinks}
                 />
               ))}
             </div>
             <div className="text-center mt-10">
               <a
-                href={`${prefix}/portfolio`}
+                href={`${prefix}/projects`}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                {t("servicesPage.links.portfolio")}
+                {t("servicesPage.links.projects")}
               </a>
             </div>
           </div>
@@ -195,12 +195,12 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
         {...(ctaAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-3">{t("workDetail.ctaSection.title")}</h2>
-            <p className="text-muted-foreground mb-8">{t("workDetail.ctaSection.description")}</p>
+            <h2 className="text-3xl font-bold mb-3">{t("projectDetail.ctaSection.title")}</h2>
+            <p className="text-muted-foreground mb-8">{t("projectDetail.ctaSection.description")}</p>
             <Button variant="green" size="lg" asChild className="mb-10">
               <a href={`${prefix}/contact?source=work-${slug}-bottom`}>
                 <PhoneIcon className="size-5 mr-2 stroke-[1.5]" />
-                {t("workDetail.cta")}
+                {t("projectDetail.cta")}
               </a>
             </Button>
 
@@ -208,8 +208,8 @@ export default function ProjectDetail({ lang, slug }: ProjectDetailProps) {
               <a href={`${prefix}/about`} className="text-muted-foreground hover:text-primary transition-colors">
                 {t("servicesPage.links.about")}
               </a>
-              <a href={`${prefix}/portfolio`} className="text-muted-foreground hover:text-primary transition-colors">
-                {t("servicesPage.links.portfolio")}
+              <a href={`${prefix}/projects`} className="text-muted-foreground hover:text-primary transition-colors">
+                {t("servicesPage.links.projects")}
               </a>
               <a href={`${prefix}/services`} className="text-muted-foreground hover:text-primary transition-colors">
                 {t("servicesPage.title")}
