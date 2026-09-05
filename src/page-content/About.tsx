@@ -149,6 +149,8 @@ export default function About({ lang }: AboutProps) {
         </div>
       </motion.section>
 
+      <Testimonials />
+
       <ProcessSection />
 
       {/* Example projects */}
@@ -190,8 +192,6 @@ export default function About({ lang }: AboutProps) {
           </div>
         </div>
       </motion.section>
-
-      <Testimonials />
 
       {/* CTA */}
       <motion.section
