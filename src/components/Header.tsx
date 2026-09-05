@@ -38,7 +38,7 @@ const Header = () => {
                 alt="Stanimeros Logo"
                 className="h-12 w-12"
               />
-              <div className="text-2xl font-bold">Stanimeros</div>
+              <div className="text-2xl font-bold font-display">Stanimeros Dev</div>
             </div>
           </a>
           
