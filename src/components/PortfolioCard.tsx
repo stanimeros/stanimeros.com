@@ -131,13 +131,13 @@ export function PortfolioCard({
             variant="outline"
             className="absolute top-3 right-3 z-10 gap-1.5 bg-black/40 backdrop-blur-sm border-white/30 text-white"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="size-1.5 rounded-full bg-green-400 animate-pulse" />
             {t("portfolioCard.live")}
           </Badge>
         )}
         <div
           className={cn(
-            "relative z-10 w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold shrink-0",
+            "relative z-10 size-20 rounded-full flex items-center justify-center text-2xl font-bold shrink-0",
             "border-2 border-white/30 shadow-lg",
             logoBg ? logoBg : "bg-white/95 dark:bg-white/10 backdrop-blur-sm",
             !logo && !logoBg && textColor
@@ -184,7 +184,7 @@ export function PortfolioCard({
                 onClick={handleAppleClick}
                 className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium bg-background hover:bg-accent transition-colors"
               >
-                <AppleIcon className="h-3.5 w-3.5" />
+                <AppleIcon className="size-3.5" />
                 {appleLabel}
               </a>
             )}
@@ -196,7 +196,7 @@ export function PortfolioCard({
                 onClick={handleGooglePlayClick}
                 className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium bg-background hover:bg-accent transition-colors"
               >
-                <GooglePlayIcon className="h-3.5 w-3.5" />
+                <GooglePlayIcon className="size-3.5" />
                 {androidLabel}
               </a>
             )}

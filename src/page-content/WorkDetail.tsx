@@ -73,7 +73,7 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
             <div className="flex items-center gap-4 mb-4">
               <div
                 className={cn(
-                  "w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold shrink-0",
+                  "size-16 rounded-full flex items-center justify-center text-xl font-bold shrink-0",
                   "border-2 border-border/60 shadow-lg",
                   item.logoBg ? item.logoBg : "bg-white/95 dark:bg-white/10 backdrop-blur-sm",
                   !item.logo && !item.logoBg && item.textColor
@@ -131,7 +131,7 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
               {(t(`portfolio.items.${item.key}.highlights`, { returnObjects: true }) as string[]).map(
                 (highlight, index) => (
                   <div key={index} className="flex items-start gap-2">
-                    <CheckIcon className="h-4 w-4 text-primary mt-1 shrink-0" />
+                    <CheckIcon className="size-4 text-primary mt-1 shrink-0" />
                     <span className="text-sm">{highlight}</span>
                   </div>
                 )
@@ -155,7 +155,7 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4 text-center">
-                <Squares2X2Icon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+                <Squares2X2Icon className="inline size-8 text-primary mr-3 align-text-bottom" />
                 {t("workDetail.relatedTitle")}
               </h2>
               <Separator className="w-24 mx-auto" />

@@ -37,7 +37,7 @@ export function ContactChannels({ className, hideEmail }: ContactChannelsProps) 
           onClick={() => trackEvent("ctaClick", { source: "contact-channel-email" })}
           className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium bg-background hover:bg-accent transition-colors"
         >
-          <EnvelopeIcon className="h-4 w-4" />
+          <EnvelopeIcon className="size-4" />
           {t("contact.channels.email")}
         </a>
       )}
@@ -48,7 +48,7 @@ export function ContactChannels({ className, hideEmail }: ContactChannelsProps) 
         onClick={() => trackEvent("ctaClick", { source: "contact-channel-whatsapp" })}
         className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium bg-background hover:bg-accent transition-colors"
       >
-        <WhatsAppIcon className="h-4 w-4" />
+        <WhatsAppIcon className="size-4" />
         {t("contact.channels.whatsapp")}
       </a>
       <a
@@ -56,7 +56,7 @@ export function ContactChannels({ className, hideEmail }: ContactChannelsProps) 
         onClick={() => trackEvent("ctaClick", { source: "contact-channel-viber" })}
         className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium bg-background hover:bg-accent transition-colors"
       >
-        <ViberIcon className="h-4 w-4" />
+        <ViberIcon className="size-4" />
         {t("contact.channels.viber")}
       </a>
     </div>

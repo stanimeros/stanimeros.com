@@ -117,7 +117,7 @@ export default function Services({ lang }: ServicesProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <WrenchScrewdriverIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <WrenchScrewdriverIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t("servicesPage.title")}
             </h1>
             <Separator className="w-24 mx-auto mb-4" />
@@ -141,7 +141,7 @@ export default function Services({ lang }: ServicesProps) {
               >
                 <CardHeader className="text-center flex-none">
                   <div className="mx-auto mb-4 text-primary">
-                    <Icon className="h-8 w-8" />
+                    <Icon className="size-8" />
                   </div>
                   <CardTitle>{t(`servicesPage.items.${key}.title`)}</CardTitle>
                 </CardHeader>
@@ -164,13 +164,13 @@ export default function Services({ lang }: ServicesProps) {
         <div className="mx-auto px-4 max-w-[1600px]">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <CubeTransparentIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <CubeTransparentIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('packages.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
             <p className="text-muted-foreground mt-4 max-w-3xl mx-auto">{t('packages.subtitle')}</p>
             <div className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary font-medium text-sm">
-              <ClockIcon className="h-4 w-4" />
+              <ClockIcon className="size-4" />
               {t('packages.footer')}
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function Services({ lang }: ServicesProps) {
                   <div className="space-y-2 text-sm text-muted-foreground">
                     {(t(pkg.features, { returnObjects: true }) as string[]).map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start gap-2">
-                        <CheckIcon className="h-4 w-4 text-primary mt-0.5" />
+                        <CheckIcon className="size-4 text-primary mt-0.5" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -218,14 +218,14 @@ export default function Services({ lang }: ServicesProps) {
             <CardContent className="p-6 flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <WrenchScrewdriverIcon className="h-6 w-6 text-primary shrink-0" />
+                  <WrenchScrewdriverIcon className="size-6 text-primary shrink-0" />
                   <CardTitle>{t('packages.maintenance.title')}</CardTitle>
                 </div>
                 <CardDescription>{t('packages.maintenance.description')}</CardDescription>
                 <div className="flex flex-wrap gap-x-5 gap-y-1.5 mt-3 text-sm text-muted-foreground">
                   {(t('packages.maintenance.features', { returnObjects: true }) as string[]).map((feature, featureIndex) => (
                     <span key={featureIndex} className="flex items-center gap-1.5">
-                      <CheckIcon className="h-4 w-4 text-primary" />
+                      <CheckIcon className="size-4 text-primary" />
                       {feature}
                     </span>
                   ))}
@@ -249,7 +249,7 @@ export default function Services({ lang }: ServicesProps) {
         {...(faqAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-semibold text-center mb-8 flex items-center justify-center gap-2">
-            <QuestionMarkCircleIcon className="h-6 w-6 text-primary shrink-0" />
+            <QuestionMarkCircleIcon className="size-6 text-primary shrink-0" />
             {t('packages.faq.title')}
           </h2>
           <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
@@ -276,7 +276,7 @@ export default function Services({ lang }: ServicesProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <BriefcaseIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <BriefcaseIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('portfolio.title')}
             </h2>
             <Separator className="w-24 mx-auto" />

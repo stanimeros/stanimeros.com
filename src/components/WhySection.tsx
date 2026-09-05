@@ -32,13 +32,13 @@ export default function WhySection() {
       className="py-20 scroll-mt-10 overflow-hidden relative"
       {...(animation as HTMLMotionProps<"section">)}>
 
-      <HandRaisedIcon className="absolute left-8 top-1/2 -translate-y-1/2 w-40 h-40 text-red-400/5 pointer-events-none hidden xl:block" />
-      <BoltIcon className="absolute right-8 top-1/2 -translate-y-1/2 w-40 h-40 text-primary/5 pointer-events-none hidden xl:block" />
+      <HandRaisedIcon className="absolute left-8 top-1/2 -translate-y-1/2 size-40 text-red-400/5 pointer-events-none hidden xl:block" />
+      <BoltIcon className="absolute right-8 top-1/2 -translate-y-1/2 size-40 text-primary/5 pointer-events-none hidden xl:block" />
 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-center">
-            <HandRaisedIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+            <HandRaisedIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
             {t('why.title')}
           </h2>
           <Separator className="w-24 mx-auto mb-4" />
@@ -50,7 +50,7 @@ export default function WhySection() {
             <div key={key} className="flex gap-6 mb-12 last:mb-0 group">
               <div className="flex flex-col items-center gap-2 shrink-0">
                 <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                  <Icon className="h-6 w-6 text-primary" />
+                  <Icon className="size-6 text-primary" />
                 </div>
                 {index < painPoints.length - 1 && (
                   <div className="w-px flex-1 bg-border/40 mt-1" />

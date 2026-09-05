@@ -46,7 +46,7 @@ export default function CookieBanner() {
     >
       <div className="bg-card border border-border/80 rounded-2xl shadow-[0_16px_50px_rgba(0,0,0,0.45)] p-6 sm:p-8 pointer-events-auto">
         <div className="flex items-center gap-3 sm:gap-4 mb-4">
-          <CakeIcon className="h-8 w-8 text-primary shrink-0" />
+          <CakeIcon className="size-8 text-primary shrink-0" />
           <h2 id="cookie-banner-title" className="font-semibold text-lg sm:text-xl">
             {t("cookieBanner.title")}
           </h2>

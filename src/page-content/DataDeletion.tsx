@@ -155,7 +155,7 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
         <main className="container mx-auto px-4 py-12 relative z-10">
           <div className="max-w-2xl mx-auto text-center">
             <div className="flex justify-center mb-6">
-              <CheckCircleIcon className="h-16 w-16 text-green-500" />
+              <CheckCircleIcon className="size-16 text-green-500" />
             </div>
             <h1 className="text-3xl font-bold mb-4">{t('dataDeletion.success.title')}</h1>
             <p className="text-muted-foreground mb-8">
@@ -165,14 +165,14 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
             <Card className="mb-8">
               <CardHeader>
                 <CardTitle className="flex items-center justify-center">
-                  <Clock className="h-5 w-5 mr-2" />
+                  <Clock className="size-5 mr-2" />
                   {t('dataDeletion.success.whatHappensNext')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {(t('dataDeletion.success.steps', { returnObjects: true }) as string[]).map((step, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="size-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-muted-foreground text-left">
                       {step}
                     </p>
@@ -205,7 +205,7 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
           {/* Title */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <Trash2 className="h-12 w-12 text-primary" />
+              <Trash2 className="size-12 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               {preset ? t('dataDeletion.titleApp', { appName: preset.appName }) : t('dataDeletion.title')}
@@ -243,7 +243,7 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
                       </dt>
                       <dd className="mt-0.5">
                         <a href={`mailto:${preset.contactEmail}`} className="inline-flex items-center gap-1.5 text-primary hover:underline">
-                          <Mail className="h-4 w-4 shrink-0" />
+                          <Mail className="size-4 shrink-0" />
                           {preset.contactEmail}
                         </a>
                       </dd>
@@ -321,7 +321,7 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
           <Card className="mb-8 border-red-200 bg-red-50/20 dark:border-red-800/50 dark:bg-red-950/30">
             <CardHeader>
               <CardTitle className="flex items-center text-red-700 dark:text-red-300">
-                <AlertTriangle className="h-5 w-5 mr-2" />
+                <AlertTriangle className="size-5 mr-2" />
                 {t('dataDeletion.importantInformation.title')}
               </CardTitle>
             </CardHeader>
@@ -340,7 +340,7 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
           <Card id="deletion-form">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Shield className="h-5 w-5 mr-2" />
+                <Shield className="size-5 mr-2" />
                 {t('dataDeletion.form.title')}
               </CardTitle>
             </CardHeader>
@@ -467,7 +467,7 @@ const DataDeletion = ({ appSlug, lang }: DataDeletionProps) => {
               {t('dataDeletion.contact.description')}
             </p>
             <div className="flex items-center justify-center space-x-2">
-              <Mail className="h-4 w-4" />
+              <Mail className="size-4" />
               <a href={`mailto:${entity.contactEmail}`} className="text-primary hover:underline">
                 {entity.contactEmail}
               </a>

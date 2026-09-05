@@ -72,7 +72,7 @@ export default function About({ lang }: AboutProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <UserIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <UserIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t("aboutPage.title")}
             </h1>
             <Separator className="w-24 mx-auto mb-4" />
@@ -120,7 +120,7 @@ export default function About({ lang }: AboutProps) {
               >
                 <CardHeader className="flex-none">
                   <div className="p-2 rounded-lg bg-primary/10 w-fit mb-2">
-                    <Icon className="h-6 w-6 text-primary" />
+                    <Icon className="size-6 text-primary" />
                   </div>
                   <h2 className="text-xl font-semibold">{t(`aboutPage.${key}.title`)}</h2>
                 </CardHeader>
@@ -158,7 +158,7 @@ export default function About({ lang }: AboutProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <BriefcaseIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <BriefcaseIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('portfolio.title')}
             </h2>
             <Separator className="w-24 mx-auto" />

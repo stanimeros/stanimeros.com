@@ -105,7 +105,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           {/* Title */}
           <div className="text-center mb-12">
             <div className="flex justify-center mb-4">
-              <Shield className="h-12 w-12 text-primary" />
+              <Shield className="size-12 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               {preset ? t('privacyPolicy.titleApp', { appName: preset.appName }) : t('privacyPolicy.title')}
@@ -143,7 +143,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
                       </dt>
                       <dd className="mt-0.5">
                         <a href={`mailto:${preset.contactEmail}`} className="inline-flex items-center gap-1.5 text-primary hover:underline">
-                          <Mail className="h-4 w-4 shrink-0" />
+                          <Mail className="size-4 shrink-0" />
                           {preset.contactEmail}
                         </a>
                       </dd>
@@ -158,7 +158,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <FileText className="h-5 w-5 mr-2" />
+                <FileText className="size-5 mr-2" />
                 {t('privacyPolicy.introduction.title')}
               </CardTitle>
             </CardHeader>
@@ -178,7 +178,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <DevicePhoneMobileIcon className="h-5 w-5 mr-2" />
+                <DevicePhoneMobileIcon className="size-5 mr-2" />
                 {t('privacyPolicy.onDeviceStorage.title')}
               </CardTitle>
             </CardHeader>
@@ -201,7 +201,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Database className="h-5 w-5 mr-2" />
+                <Database className="size-5 mr-2" />
                 {t('privacyPolicy.onlineCollection.title')}
               </CardTitle>
             </CardHeader>
@@ -242,7 +242,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <UsersIcon className="h-5 w-5 mr-2" />
+                <UsersIcon className="size-5 mr-2" />
                 {t('privacyPolicy.informationWeCollect.title')}
               </CardTitle>
             </CardHeader>
@@ -272,7 +272,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <GlobeAltIcon className="h-5 w-5 mr-2" />
+                <GlobeAltIcon className="size-5 mr-2" />
                 {t('privacyPolicy.informationWeCollect.locationData.title')}
               </CardTitle>
             </CardHeader>
@@ -301,7 +301,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <EyeIcon className="h-5 w-5 mr-2" />
+                <EyeIcon className="size-5 mr-2" />
                 {t('privacyPolicy.howWeUseInformation.title')}
               </CardTitle>
             </CardHeader>
@@ -318,7 +318,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <CloudIcon className="h-5 w-5 mr-2" />
+                <CloudIcon className="size-5 mr-2" />
                 {t('privacyPolicy.thirdPartyServices.title')}
               </CardTitle>
             </CardHeader>
@@ -367,7 +367,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <UsersIcon className="h-5 w-5 mr-2" />
+                <UsersIcon className="size-5 mr-2" />
                 {t('privacyPolicy.informationSharing.title')}
               </CardTitle>
             </CardHeader>
@@ -382,7 +382,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <KeyIcon className="h-5 w-5 mr-2" />
+                <KeyIcon className="size-5 mr-2" />
                 {t('privacyPolicy.apiKeys.title')}
               </CardTitle>
             </CardHeader>
@@ -400,7 +400,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Lock className="h-5 w-5 mr-2" />
+                <Lock className="size-5 mr-2" />
                 {t('privacyPolicy.dataSecurity.title')}
               </CardTitle>
             </CardHeader>
@@ -420,7 +420,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <FingerPrintIcon className="h-5 w-5 mr-2" />
+                <FingerPrintIcon className="size-5 mr-2" />
                 {t('privacyPolicy.yourRights.title')}
               </CardTitle>
             </CardHeader>
@@ -440,7 +440,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <ClockIcon className="h-5 w-5 mr-2" />
+                <ClockIcon className="size-5 mr-2" />
                 {t('privacyPolicy.dataRetention.title')}
               </CardTitle>
             </CardHeader>
@@ -458,7 +458,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <UserGroupIcon className="h-5 w-5 mr-2" />
+                <UserGroupIcon className="size-5 mr-2" />
                 {t('privacyPolicy.childrensPrivacy.title')}
               </CardTitle>
             </CardHeader>
@@ -473,7 +473,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <ArrowPathIcon className="h-5 w-5 mr-2" />
+                <ArrowPathIcon className="size-5 mr-2" />
                 {t('privacyPolicy.changesToPolicy.title')}
               </CardTitle>
             </CardHeader>
@@ -488,7 +488,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <ScaleIcon className="h-5 w-5 mr-2" />
+                <ScaleIcon className="size-5 mr-2" />
                 {t('privacyPolicy.legalBasis.title')}
               </CardTitle>
             </CardHeader>
@@ -508,7 +508,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <GlobeAltIcon className="h-5 w-5 mr-2" />
+                <GlobeAltIcon className="size-5 mr-2" />
                 {t('privacyPolicy.internationalTransfers.title')}
               </CardTitle>
             </CardHeader>
@@ -523,7 +523,7 @@ const PrivacyPolicy = ({ appSlug, lang }: PrivacyPolicyProps) => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
-                <CakeIcon className="h-5 w-5 mr-2" />
+                <CakeIcon className="size-5 mr-2" />
                 {t('privacyPolicy.cookies.title')}
               </CardTitle>
             </CardHeader>

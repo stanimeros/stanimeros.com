@@ -27,7 +27,7 @@ const LanguageSwitcher = ({ variant = 'default' }: LanguageSwitcherProps) => {
       className={`cursor-pointer ${variant === 'compact' ? 'px-2 h-8 text-xs' : 'justify-start'}`}
       size={variant === 'compact' ? 'sm' : 'default'}
     >
-      <GlobeAltIcon className={`h-4 w-4 ${variant === 'compact' ? 'mr-1' : 'mr-3'}`} />
+      <GlobeAltIcon className={`size-4 ${variant === 'compact' ? 'mr-1' : 'mr-3'}`} />
       {variant === 'compact' 
         ? i18n.language === 'en' ? 'EL' : 'EN'
         : i18n.language === 'en' ? 'Αλλαγή στα Ελληνικά' : 'Switch to English'

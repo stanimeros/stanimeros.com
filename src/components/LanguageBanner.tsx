@@ -72,7 +72,7 @@ export default function LanguageBanner({ lang }: LanguageBannerProps) {
           onClick={dismiss}
           className="text-muted-foreground hover:text-foreground shrink-0"
         >
-          <XMarkIcon className="h-4 w-4" />
+          <XMarkIcon className="size-4" />
         </button>
       </div>
     </div>

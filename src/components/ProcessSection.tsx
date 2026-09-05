@@ -33,7 +33,7 @@ export default function ProcessSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-center">
-            <ListBulletIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+            <ListBulletIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
             {t('process.title')}
           </h2>
           <Separator className="w-24 mx-auto mb-4" />
@@ -45,7 +45,7 @@ export default function ProcessSection() {
             <div key={key} className="flex gap-6 mb-12 last:mb-0 group">
               <div className="flex flex-col items-center gap-2 shrink-0">
                 <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
-                  <Icon className="h-6 w-6 text-primary" />
+                  <Icon className="size-6 text-primary" />
                 </div>
                 {index < steps.length - 1 && (
                   <div className="w-px flex-1 bg-border/40 mt-1" />

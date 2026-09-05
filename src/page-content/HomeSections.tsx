@@ -101,7 +101,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <UserIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <UserIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('about.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
@@ -169,7 +169,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <WrenchScrewdriverIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <WrenchScrewdriverIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('services.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
@@ -177,22 +177,22 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
             {[
               {
-                icon: <GlobeAltIcon className="h-8 w-8" />,
+                icon: <GlobeAltIcon className="size-8" />,
                 title: 'services.website.title',
                 description: 'services.website.description'
               },
               {
-                icon: <DevicePhoneMobileIcon className="h-8 w-8" />,
+                icon: <DevicePhoneMobileIcon className="size-8" />,
                 title: 'services.apps.title',
                 description: 'services.apps.description'
               },
               {
-                icon: <LightBulbIcon className="h-8 w-8" />,
+                icon: <LightBulbIcon className="size-8" />,
                 title: 'services.optimization.title',
                 description: 'services.optimization.description'
               },
               {
-                icon: <ChatBubbleLeftRightIcon className="h-8 w-8" />,
+                icon: <ChatBubbleLeftRightIcon className="size-8" />,
                 title: 'services.aiAgent.title',
                 description: 'services.aiAgent.description'
               }
@@ -235,7 +235,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         <div className="mx-auto px-4 max-w-[1600px]">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <CubeTransparentIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <CubeTransparentIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('packages.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
@@ -243,7 +243,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
               {t('packages.subtitle')}
             </p>
             <div className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary font-medium text-sm">
-              <ClockIcon className="h-4 w-4" />
+              <ClockIcon className="size-4" />
               {t('packages.footer')}
             </div>
           </div>
@@ -305,7 +305,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
                     <div className="space-y-2 text-sm text-muted-foreground">
                       {(t(pkg.features, { returnObjects: true }) as string[]).map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start gap-2">
-                          <CheckIcon className="h-4 w-4 text-primary mt-0.5" />
+                          <CheckIcon className="size-4 text-primary mt-0.5" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -331,14 +331,14 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
             <CardContent className="p-6 flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <WrenchScrewdriverIcon className="h-6 w-6 text-primary shrink-0" />
+                  <WrenchScrewdriverIcon className="size-6 text-primary shrink-0" />
                   <CardTitle>{t('packages.maintenance.title')}</CardTitle>
                 </div>
                 <CardDescription>{t('packages.maintenance.description')}</CardDescription>
                 <div className="flex flex-wrap gap-x-5 gap-y-1.5 mt-3 text-sm text-muted-foreground">
                   {(t('packages.maintenance.features', { returnObjects: true }) as string[]).map((feature, featureIndex) => (
                     <span key={featureIndex} className="flex items-center gap-1.5">
-                      <CheckIcon className="h-4 w-4 text-primary" />
+                      <CheckIcon className="size-4 text-primary" />
                       {feature}
                     </span>
                   ))}
@@ -356,7 +356,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
           {/* FAQ Section */}
           <div className="mt-20">
             <h3 className="text-2xl font-semibold text-center mb-8 flex items-center justify-center gap-2">
-              <QuestionMarkCircleIcon className="h-6 w-6 text-primary shrink-0" />
+              <QuestionMarkCircleIcon className="size-6 text-primary shrink-0" />
               {t('packages.faq.title')}
             </h3>
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
@@ -444,7 +444,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <BriefcaseIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <BriefcaseIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('portfolio.title')}
             </h2>
             <Separator className="w-24 mx-auto mb-4" />
@@ -486,7 +486,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-center">
-              <PhoneIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <PhoneIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('contact.title')}
             </h2>
             <Separator className="w-24 mx-auto mb-4" />
@@ -498,7 +498,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
             <div className="grid md:grid-cols-3 gap-4 w-full">
               <div className="flex items-start space-x-3 p-4 rounded-lg bg-card/70 border border-border/60">
                 <div className="mt-1 shrink-0">
-                  <ClockIcon className="h-5 w-5 text-primary" />
+                  <ClockIcon className="size-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-medium">{t('contact.features.consultation.title')}</h3>
@@ -507,7 +507,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
               </div>
               <div className="flex items-start space-x-3 p-4 rounded-lg bg-card/70 border border-border/60">
                 <div className="mt-1 shrink-0">
-                  <CursorArrowRaysIcon className="h-5 w-5 text-primary" />
+                  <CursorArrowRaysIcon className="size-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-medium">{t('contact.features.solutions.title')}</h3>
@@ -516,7 +516,7 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
               </div>
               <div className="flex items-start space-x-3 p-4 rounded-lg bg-card/70 border border-border/60">
                 <div className="mt-1 shrink-0">
-                  <SparklesIcon className="h-5 w-5 text-primary" />
+                  <SparklesIcon className="size-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-medium">{t('contact.features.noObligations.title')}</h3>
@@ -538,13 +538,13 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
             <div className="flex flex-col items-center gap-4">
               <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
                 <div className="flex items-center space-x-2">
-                  <EnvelopeIcon className="h-4 w-4 text-primary" />
+                  <EnvelopeIcon className="size-4 text-primary" />
                   <a href="mailto:hello@stanimeros.com" className="hover:text-primary transition-colors">
                     hello@stanimeros.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <MapPinIcon className="h-4 w-4 text-primary" />
+                  <MapPinIcon className="size-4 text-primary" />
                   <span>{t('common.location')}</span>
                 </div>
               </div>
@@ -552,22 +552,22 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
               <div className="flex space-x-3">
                 <a href="https://linkedin.com/in/stanimeros" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Button variant="outline" size="icon" aria-hidden="true" tabIndex={-1}>
-                    <LinkedinIcon className="h-5 w-5" />
+                    <LinkedinIcon className="size-5" />
                   </Button>
                 </a>
                 <a href="https://www.facebook.com/stanimeros.dev" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <Button variant="outline" size="icon" aria-hidden="true" tabIndex={-1}>
-                    <FacebookIcon className="h-5 w-5" />
+                    <FacebookIcon className="size-5" />
                   </Button>
                 </a>
                 <a href="https://www.instagram.com/stanimeros_dev" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <Button variant="outline" size="icon" aria-hidden="true" tabIndex={-1}>
-                    <InstagramIcon className="h-5 w-5" />
+                    <InstagramIcon className="size-5" />
                   </Button>
                 </a>
                 <a href="https://github.com/stanimeros" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Button variant="outline" size="icon" aria-hidden="true" tabIndex={-1}>
-                    <GithubIcon className="h-5 w-5" />
+                    <GithubIcon className="size-5" />
                   </Button>
                 </a>
               </div>

@@ -115,7 +115,7 @@ export default function Contact() {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <PhoneIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+              <PhoneIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
               {t('contact.title')}
             </h1>
             <Separator className="w-24 mx-auto mb-4" />
@@ -137,7 +137,7 @@ export default function Contact() {
 
           {status === "success" ? (
             <div className="text-center space-y-4 max-w-lg mx-auto">
-              <CheckCircleIcon className="h-16 w-16 text-green-400 mx-auto" />
+              <CheckCircleIcon className="size-16 text-green-400 mx-auto" />
               <h2 className="text-3xl font-bold">{t('contact.title')}</h2>
               <p className="text-muted-foreground">{t('contact.form.success')}</p>
             </div>
@@ -214,7 +214,7 @@ export default function Contact() {
                 className="flex items-start space-x-3 p-4 rounded-lg bg-card/70 border border-border/60"
               >
                 <div className="mt-1 shrink-0">
-                  <Icon className="h-5 w-5 text-primary" />
+                  <Icon className="size-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-medium">{t(`contact.features.${key}.title`)}</h3>
@@ -233,7 +233,7 @@ export default function Contact() {
         {...(faqAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-semibold text-center mb-8 flex items-center justify-center gap-2">
-            <QuestionMarkCircleIcon className="h-6 w-6 text-primary shrink-0" />
+            <QuestionMarkCircleIcon className="size-6 text-primary shrink-0" />
             {t('packages.faq.title')}
           </h2>
           <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">

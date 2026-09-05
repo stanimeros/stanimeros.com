@@ -143,7 +143,7 @@ export default function ChatWidget() {
               <p className="text-sm text-muted-foreground">{t("chat.subtitle")}</p>
             </div>
             <Button variant="ghost" size="icon" onClick={() => setOpen(false)} aria-label={t("chat.closeLabel")}>
-              <XMarkIcon className="h-5 w-5" />
+              <XMarkIcon className="size-5" />
             </Button>
           </div>
 
@@ -163,9 +163,9 @@ export default function ChatWidget() {
             {isSending && (
               <div className="mr-auto bg-muted text-foreground rounded-2xl px-4 py-2 text-sm">
                 <div className="flex gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-current animate-bounce [animation-delay:-0.3s]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-current animate-bounce [animation-delay:-0.15s]" />
-                  <span className="w-1.5 h-1.5 rounded-full bg-current animate-bounce" />
+                  <span className="size-1.5 rounded-full bg-current animate-bounce [animation-delay:-0.3s]" />
+                  <span className="size-1.5 rounded-full bg-current animate-bounce [animation-delay:-0.15s]" />
+                  <span className="size-1.5 rounded-full bg-current animate-bounce" />
                 </div>
               </div>
             )}
@@ -186,7 +186,7 @@ export default function ChatWidget() {
               className="min-h-10 max-h-32 resize-none"
             />
             <Button variant="green" size="icon" onClick={handleSend} disabled={isSending || !input.trim()} aria-label={t("chat.send")}>
-              <PaperAirplaneIcon className="h-4 w-4" />
+              <PaperAirplaneIcon className="size-4" />
             </Button>
           </div>
         </div>
@@ -197,9 +197,9 @@ export default function ChatWidget() {
         size="icon"
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t("chat.closeLabel") : t("chat.openLabel")}
-        className="fixed bottom-20 sm:bottom-4 right-4 sm:right-6 z-50 h-14 w-14 rounded-full shadow-lg"
+        className="fixed bottom-20 sm:bottom-4 right-4 sm:right-6 z-50 size-14 rounded-full shadow-lg"
       >
-        {open ? <XMarkIcon className="h-6 w-6" /> : <ChatBubbleLeftRightIcon className="h-6 w-6" />}
+        {open ? <XMarkIcon className="size-6" /> : <ChatBubbleLeftRightIcon className="size-6" />}
       </Button>
     </>
   )

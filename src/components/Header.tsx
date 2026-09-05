@@ -36,7 +36,7 @@ const Header = () => {
               <img
                 src="/images/logo-glass.webp"
                 alt="Stanimeros Logo"
-                className="h-12 w-12"
+                className="size-12"
               />
               <div className="text-2xl font-bold font-display">Stanimeros Dev</div>
             </div>
@@ -81,32 +81,32 @@ const Header = () => {
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" aria-label={t('nav.menu')}>
-                  <Menu className="h-6 w-6" />
+                  <Menu className="size-6" />
                 </Button>
               </SheetTrigger>
             <SheetContent side="right" className="w-[300px]">
               <div className="flex flex-col space-y-2 mt-2">
                 <Button variant="ghost" asChild className="justify-start cursor-pointer">
                   <a href={prefix || '/'}>
-                    <HomeIcon className="h-4 w-4 mr-3" />
+                    <HomeIcon className="size-4 mr-3" />
                     {t('nav.home')}
                   </a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start cursor-pointer">
                   <a href={`${prefix}/about`}>
-                    <UserIcon className="h-4 w-4 mr-3" />
+                    <UserIcon className="size-4 mr-3" />
                     {t('nav.about')}
                   </a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start cursor-pointer">
                   <a href={`${prefix}/services`}>
-                    <Settings className="h-4 w-4 mr-3" />
+                    <Settings className="size-4 mr-3" />
                     {t('nav.services')}
                   </a>
                 </Button>
                 <Button variant="ghost" asChild className="justify-start cursor-pointer">
                   <a href={`${prefix}/contact`}>
-                    <Mail className="h-4 w-4 mr-3" />
+                    <Mail className="size-4 mr-3" />
                     {t('nav.contact')}
                   </a>
                 </Button>

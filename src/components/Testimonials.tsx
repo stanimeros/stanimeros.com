@@ -27,7 +27,7 @@ export default function Testimonials() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-center">
-            <ChatBubbleLeftRightIcon className="inline h-8 w-8 text-primary mr-3 align-text-bottom" />
+            <ChatBubbleLeftRightIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
             {t("testimonials.title")}
           </h2>
           <Separator className="w-24 mx-auto mb-4" />
