@@ -100,8 +100,8 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         {...(aboutAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <UserIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <UserIcon className="size-8 text-primary" />
               {t('about.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
@@ -168,8 +168,8 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         {...(servicesAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <WrenchScrewdriverIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <WrenchScrewdriverIcon className="size-8 text-primary" />
               {t('services.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
@@ -234,8 +234,8 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         {...(packagesAnimation as HTMLMotionProps<"section">)}>
         <div className="mx-auto px-4 max-w-[1600px]">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <CubeTransparentIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <CubeTransparentIcon className="size-8 text-primary" />
               {t('packages.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
@@ -395,10 +395,10 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="googleBusiness">
-                <AccordionTrigger className="text-lg">{t('packages.faq.items.googleBusiness.question')}</AccordionTrigger>
+              <AccordionItem value="technicalKnowledge">
+                <AccordionTrigger className="text-lg">{t('packages.faq.items.technicalKnowledge.question')}</AccordionTrigger>
                 <AccordionContent>
-                  {t('packages.faq.items.googleBusiness.answer')}
+                  {t('packages.faq.items.technicalKnowledge.answer')}
                 </AccordionContent>
               </AccordionItem>
 
@@ -409,24 +409,24 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="hosting">
-                <AccordionTrigger className="text-lg">{t('packages.faq.items.hosting.question')}</AccordionTrigger>
+              <AccordionItem value="aiAutomation">
+                <AccordionTrigger className="text-lg">{t('packages.faq.items.aiAutomation.question')}</AccordionTrigger>
                 <AccordionContent>
-                  {t('packages.faq.items.hosting.answer')}
+                  {t('packages.faq.items.aiAutomation.answer')}
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="eshopPlatforms">
-                <AccordionTrigger className="text-lg">{t('packages.faq.items.eshopPlatforms.question')}</AccordionTrigger>
+              <AccordionItem value="aiTrainingData">
+                <AccordionTrigger className="text-lg">{t('packages.faq.items.aiTrainingData.question')}</AccordionTrigger>
                 <AccordionContent>
-                  {t('packages.faq.items.eshopPlatforms.answer')}
+                  {t('packages.faq.items.aiTrainingData.answer')}
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="customization">
-                <AccordionTrigger className="text-lg">{t('packages.faq.items.customization.question')}</AccordionTrigger>
+              <AccordionItem value="optimizationProblems">
+                <AccordionTrigger className="text-lg">{t('packages.faq.items.optimizationProblems.question')}</AccordionTrigger>
                 <AccordionContent>
-                  {t('packages.faq.items.customization.answer')}
+                  {t('packages.faq.items.optimizationProblems.answer')}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -443,8 +443,8 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         {...(portfolioAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <BriefcaseIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <BriefcaseIcon className="size-8 text-primary" />
               {t('portfolio.title')}
             </h2>
             <Separator className="w-24 mx-auto mb-4" />
@@ -485,8 +485,8 @@ const HomeSections = ({ lang }: HomeSectionsProps) => {
         {...(contactAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <PhoneIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <PhoneIcon className="size-8 text-primary" />
               {t('contact.title')}
             </h2>
             <Separator className="w-24 mx-auto mb-4" />

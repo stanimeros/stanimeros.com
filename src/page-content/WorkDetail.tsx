@@ -154,8 +154,8 @@ export default function WorkDetail({ lang, slug }: WorkDetailProps) {
           {...(relatedAnimation as HTMLMotionProps<"section">)}>
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 text-center">
-                <Squares2X2Icon className="inline size-8 text-primary mr-3 align-text-bottom" />
+              <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+                <Squares2X2Icon className="size-8 text-primary" />
                 {t("workDetail.relatedTitle")}
               </h2>
               <Separator className="w-24 mx-auto" />

@@ -71,8 +71,8 @@ export default function About({ lang }: AboutProps) {
         {...(heroAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <UserIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3">
+              <UserIcon className="size-8 text-primary" />
               {t("aboutPage.title")}
             </h1>
             <Separator className="w-24 mx-auto mb-4" />
@@ -157,8 +157,8 @@ export default function About({ lang }: AboutProps) {
         {...(portfolioAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <BriefcaseIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <BriefcaseIcon className="size-8 text-primary" />
               {t('portfolio.title')}
             </h2>
             <Separator className="w-24 mx-auto" />

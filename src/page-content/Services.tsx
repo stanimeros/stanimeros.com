@@ -41,11 +41,11 @@ const faqItems = [
   "timeToLaunch",
   "ownership",
   "noContent",
-  "googleBusiness",
+  "technicalKnowledge",
   "seo",
-  "hosting",
-  "eshopPlatforms",
-  "customization",
+  "aiAutomation",
+  "aiTrainingData",
+  "optimizationProblems",
 ] as const
 
 const packages = [
@@ -116,8 +116,8 @@ export default function Services({ lang }: ServicesProps) {
         {...(heroAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <WrenchScrewdriverIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3">
+              <WrenchScrewdriverIcon className="size-8 text-primary" />
               {t("servicesPage.title")}
             </h1>
             <Separator className="w-24 mx-auto mb-4" />
@@ -163,8 +163,8 @@ export default function Services({ lang }: ServicesProps) {
         {...(packagesAnimation as HTMLMotionProps<"section">)}>
         <div className="mx-auto px-4 max-w-[1600px]">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <CubeTransparentIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <CubeTransparentIcon className="size-8 text-primary" />
               {t('packages.title')}
             </h2>
             <Separator className="w-24 mx-auto" />
@@ -275,8 +275,8 @@ export default function Services({ lang }: ServicesProps) {
         {...(portfolioAnimation as HTMLMotionProps<"section">)}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-center">
-              <BriefcaseIcon className="inline size-8 text-primary mr-3 align-text-bottom" />
+            <h2 className="text-4xl font-bold mb-4 text-center flex items-center justify-center gap-3">
+              <BriefcaseIcon className="size-8 text-primary" />
               {t('portfolio.title')}
             </h2>
             <Separator className="w-24 mx-auto" />

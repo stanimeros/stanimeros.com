@@ -28,7 +28,7 @@
     "menu": "Menu"
   },
   "hero": {
-    "title": "Pantelis Stanimeros",
+    "title": "Stanimeros Dev",
     "subtitleBefore": "Websites, apps, and ",
     "subtitleHighlight": "real solutions",
     "subtitleAfter": " for real business problems",
@@ -123,19 +123,19 @@
     "faq": {
       "title": "Frequently Asked Questions",
       "items": {
-        "hosting": {
+        "aiAutomation": {
           "question": "How does AI automation actually work for my business?",
           "answer": "AI automation handles tasks automatically on your behalf, answering customer questions, processing requests, sending follow-ups, or running internal workflows. You define what it should do, and it runs 24/7 without needing someone to manage it manually. Think of it as a team member that never sleeps and never makes the same mistake twice."
         },
-        "googleBusiness": {
+        "technicalKnowledge": {
           "question": "Do I need technical knowledge to use what you build?",
           "answer": "Not at all. Everything is built with the end user in mind, whether that's you, your team, or your customers. You get a simple interface to manage things, and I handle all the technical complexity behind the scenes. If something needs explaining, I'll walk you through it in plain language."
         },
-        "eshopPlatforms": {
+        "aiTrainingData": {
           "question": "What kind of data do I need to train an AI on my business?",
           "answer": "It depends on what you want the AI to do. For customer support AI, your existing documents, FAQs, or product descriptions are enough. For predictions or recommendations, historical records like past orders, schedules, or outcomes work well. You don't need a huge dataset — even a few hundred records can be a good starting point. We'll assess what you have and what's possible."
         },
-        "customization": {
+        "optimizationProblems": {
           "question": "What kind of problems can you solve with optimization?",
           "answer": "Any problem where you're trying to find the best arrangement, schedule, or allocation, and doing it manually takes too long or gives poor results. Common examples: employee scheduling with shift constraints, delivery route planning, matching resources to tasks, or deciding the optimal mix of products or services. If it feels like a puzzle your business solves repeatedly, it can likely be automated and optimized."
         },
@@ -161,7 +161,7 @@
         },
         "payBeforeSeeing": {
           "question": "How does payment work?",
-          "answer": "You get a free strategy call and a clear scope and price within 2 hours, so there are no surprises. Getting started requires a deposit to lock in the work, and from there you'll see a working prototype in 3–7 days, so you know it's on track early on."
+          "answer": "Nothing is locked in until you have a clear scope and price: the free strategy call gets you both within 2 hours, no surprises. From there, a deposit starts the work, and you'll see a working prototype in 3–7 days, so you know early that it's on track."
         }
       }
     }
